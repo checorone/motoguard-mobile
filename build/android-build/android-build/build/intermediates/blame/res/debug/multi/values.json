@@ -1,0 +1,140 @@
+[
+    {
+        "outputFile": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 659,
+                    "endColumn": 12,
+                    "endOffset": 89701
+                },
+                "from": {
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 660,
+                    "startColumn": 4,
+                    "startOffset": 89706,
+                    "endLine": 704,
+                    "endColumn": 12,
+                    "endOffset": 94197
+                },
+                "from": {
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 705,
+                    "startColumn": 4,
+                    "startOffset": 94202,
+                    "endLine": 709,
+                    "endColumn": 12,
+                    "endOffset": 94288
+                },
+                "from": {
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 291,
+                        "endLine": 13,
+                        "endColumn": 12,
+                        "endOffset": 377
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 710,
+                    "startColumn": 4,
+                    "startOffset": 94293,
+                    "endLine": 728,
+                    "endColumn": 13,
+                    "endOffset": 94758
+                },
+                "from": {
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 729,
+                    "startColumn": 4,
+                    "startOffset": 94763,
+                    "endLine": 731,
+                    "endColumn": 12,
+                    "endOffset": 94873
+                },
+                "from": {
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 732,
+                    "startColumn": 4,
+                    "startOffset": 94878,
+                    "endColumn": 53,
+                    "endOffset": 94927
+                },
+                "from": {
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 733,
+                    "startColumn": 4,
+                    "startOffset": 94932,
+                    "endColumn": 107,
+                    "endOffset": 95035
+                },
+                "from": {
+                    "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 734,
+                    "startColumn": 4,
+                    "startOffset": 95040,
+                    "endColumn": 121,
+                    "endOffset": 95157
+                },
+                "from": {
+                    "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 735,
+                    "startColumn": 4,
+                    "startOffset": 95162,
+                    "endColumn": 111,
+                    "endOffset": 95269
+                },
+                "from": {
+                    "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 736,
+                    "startColumn": 4,
+                    "startOffset": 95274,
+                    "endColumn": 84,
+                    "endOffset": 95354
+                },
+                "from": {
+                    "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
+                }
+            }
+        ]
+    }
+]

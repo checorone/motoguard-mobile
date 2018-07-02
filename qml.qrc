@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>View/Bar.qml</file>
+        <file>View/DrawerPanel.qml</file>
+        <file>View/main.qml</file>
+        <file>View/NewsPage.qml</file>
+        <file>View/Stack.qml</file>
+        <file>View/DataPage.qml</file>
+        <file>View/DevicesPage.qml</file>
+        <file>View/HistoryPage.qml</file>
+        <file>View/MonitoringPage.qml</file>
+        <file>View/SettingsPage.qml</file>
+        <file>View/PositionPage.qml</file>
+        <file>View/UserPage.qml</file>
+        <file>View/NotifySettingsPopup.qml</file>
+        <file>View/DeviceSettingsPopup.qml</file>
+        <file>View/AddDevicePopup.qml</file>
+        <file>View/DeviceOptionsPopup.qml</file>
+        <file>View/LimitInputPopup.qml</file>
+        <file>View/NotifySettingsPage.qml</file>
+        <file>View/AuthPopup.qml</file>
+    </qresource>
+</RCC>

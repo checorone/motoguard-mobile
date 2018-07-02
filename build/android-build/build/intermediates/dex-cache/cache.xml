@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/checor/Qt_projects/motoguard-android/build/android-build/libs/QtAndroidBearer.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="240d63fd32eeb8ff0c72f271e3bc9b18fe3963b0">
+        <dex dex="/home/checor/Qt_projects/motoguard-android/build/android-build/build/intermediates/pre-dexed/debug/QtAndroidBearer_5e7e41b3892320289e5e1b08174487b16aaebaed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/checor/Qt_projects/motoguard-android/build/android-build/libs/QtPositioning.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="0e63f392f598faadd152b7e7059179b85a5363db">
+        <dex dex="/home/checor/Qt_projects/motoguard-android/build/android-build/build/intermediates/pre-dexed/debug/QtPositioning_90f30eed4dc81b41ce7ecc8510301298844a5316.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/checor/Qt_projects/motoguard-android/build/android-build/libs/QtAndroid.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="61597ce917e370b1a18343dafa3b5a68249e30ad">
+        <dex dex="/home/checor/Qt_projects/motoguard-android/build/android-build/build/intermediates/pre-dexed/debug/QtAndroid_6abe653b33f9917085e4677af85b4e86ef366bf0.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/back-icon.png</file>
+        <file>Resources/back.png</file>
+        <file>Resources/bar.png</file>
+        <file>Resources/esports.png</file>
+        <file>Resources/hamb-icon.png</file>
+        <file>Resources/hamb-settings-icon.png</file>
+        <file>Resources/default-user.png</file>
+        <file>Resources/bad.png</file>
+        <file>Resources/good.png</file>
+    </qresource>
+</RCC>
