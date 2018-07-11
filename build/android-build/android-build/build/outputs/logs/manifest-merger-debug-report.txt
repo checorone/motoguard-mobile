@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:2:1-46:12
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:2:1-52:12
 	package
 		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:2:11-55
 	android:versionName
@@ -104,21 +104,21 @@ ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android
 	android:name
 		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:20:24-62
 meta-data#android.app.load_local_libs
-ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:21:13-235
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:21:13-345
 	android:value
-		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:21:67-233
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:21:67-343
 	android:name
 		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:21:24-66
 meta-data#android.app.load_local_jars
-ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:22:13-172
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:22:13-218
 	android:value
-		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:22:67-170
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:22:67-216
 	android:name
 		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:22:24-66
 meta-data#android.app.static_init_classes
-ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:23:13-140
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:23:13-195
 	android:value
-		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:23:71-138
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:23:71-193
 	android:name
 		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:23:24-70
 meta-data#android.app.ministro_not_found_msg
@@ -165,13 +165,45 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:40:5-79
 	android:name
 		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:40:22-76
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:41:5-79
+uses-permission#android.permission.CAMERA
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:41:5-65
 	android:name
-		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:41:22-76
-uses-feature#0x00020000
-ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:45:9-82
-	android:glEsVersion
-		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:45:23-55
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:41:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:42:5-71
+	android:name
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:42:22-68
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:43:5-79
+	android:name
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:43:22-76
+uses-feature#android.hardware.camera
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:47:9-89
 	android:required
-		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:45:56-79
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:47:62-86
+	android:name
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:47:23-61
+uses-feature#android.hardware.camera.autofocus
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:48:5-95
+	android:required
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:48:68-92
+	android:name
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:48:19-67
+uses-feature#android.hardware.microphone
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:49:5-89
+	android:required
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:49:62-86
+	android:name
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:49:19-61
+uses-feature#android.hardware.gamepad
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:50:5-86
+	android:required
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:50:59-83
+	android:name
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:50:19-58
+uses-feature#0x00020000
+ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:51:5-78
+	android:glEsVersion
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:51:19-51
+	android:required
+		ADDED from /home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/AndroidManifest.xml:51:52-75

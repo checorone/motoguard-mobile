@@ -7,35 +7,51 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endLine": 659,
+                    "endLine": 1084,
                     "endColumn": 12,
-                    "endOffset": 89701
+                    "endOffset": 146837
                 },
                 "from": {
-                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml",
+                    "position": {
+                        "startLine": 127,
+                        "startColumn": 4,
+                        "startOffset": 9322,
+                        "endLine": 1209,
+                        "endColumn": 12,
+                        "endOffset": 156104
+                    }
                 }
             },
             {
                 "to": {
-                    "startLine": 660,
+                    "startLine": 1085,
                     "startColumn": 4,
-                    "startOffset": 89706,
-                    "endLine": 704,
+                    "startOffset": 146842,
+                    "endLine": 1161,
                     "endColumn": 12,
-                    "endOffset": 94197
+                    "endOffset": 154905
                 },
                 "from": {
-                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 1254,
+                        "endLine": 126,
+                        "endColumn": 12,
+                        "endOffset": 9317
+                    }
                 }
             },
             {
                 "to": {
-                    "startLine": 705,
+                    "startLine": 1162,
                     "startColumn": 4,
-                    "startOffset": 94202,
-                    "endLine": 709,
+                    "startOffset": 154910,
+                    "endLine": 1167,
                     "endColumn": 12,
-                    "endOffset": 94288
+                    "endOffset": 155016
                 },
                 "from": {
                     "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml",
@@ -43,33 +59,41 @@
                         "startLine": 9,
                         "startColumn": 4,
                         "startOffset": 291,
-                        "endLine": 13,
+                        "endLine": 14,
                         "endColumn": 12,
-                        "endOffset": 377
+                        "endOffset": 397
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 710,
+                    "startLine": 1168,
                     "startColumn": 4,
-                    "startOffset": 94293,
-                    "endLine": 728,
+                    "startOffset": 155021,
+                    "endLine": 1200,
                     "endColumn": 13,
-                    "endOffset": 94758
+                    "endOffset": 155865
                 },
                 "from": {
-                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
+                    "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 5,
+                        "startOffset": 404,
+                        "endLine": 48,
+                        "endColumn": 13,
+                        "endOffset": 1248
+                    }
                 }
             },
             {
                 "to": {
-                    "startLine": 729,
+                    "startLine": 1201,
                     "startColumn": 4,
-                    "startOffset": 94763,
-                    "endLine": 731,
+                    "startOffset": 155870,
+                    "endLine": 1203,
                     "endColumn": 12,
-                    "endOffset": 94873
+                    "endOffset": 155980
                 },
                 "from": {
                     "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/libs.xml"
@@ -77,11 +101,11 @@
             },
             {
                 "to": {
-                    "startLine": 732,
+                    "startLine": 1204,
                     "startColumn": 4,
-                    "startOffset": 94878,
+                    "startOffset": 155985,
                     "endColumn": 53,
-                    "endOffset": 94927
+                    "endOffset": 156034
                 },
                 "from": {
                     "file": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/res/values/strings.xml"
@@ -89,11 +113,11 @@
             },
             {
                 "to": {
-                    "startLine": 733,
+                    "startLine": 1205,
                     "startColumn": 4,
-                    "startOffset": 94932,
+                    "startOffset": 156039,
                     "endColumn": 107,
-                    "endOffset": 95035
+                    "endOffset": 156142
                 },
                 "from": {
                     "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
@@ -101,11 +125,11 @@
             },
             {
                 "to": {
-                    "startLine": 734,
+                    "startLine": 1206,
                     "startColumn": 4,
-                    "startOffset": 95040,
+                    "startOffset": 156147,
                     "endColumn": 121,
-                    "endOffset": 95157
+                    "endOffset": 156264
                 },
                 "from": {
                     "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
@@ -113,11 +137,11 @@
             },
             {
                 "to": {
-                    "startLine": 735,
+                    "startLine": 1207,
                     "startColumn": 4,
-                    "startOffset": 95162,
+                    "startOffset": 156269,
                     "endColumn": 111,
-                    "endOffset": 95269
+                    "endOffset": 156376
                 },
                 "from": {
                     "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"
@@ -125,11 +149,11 @@
             },
             {
                 "to": {
-                    "startLine": 736,
+                    "startLine": 1208,
                     "startColumn": 4,
-                    "startOffset": 95274,
+                    "startOffset": 156381,
                     "endColumn": 84,
-                    "endOffset": 95354
+                    "endOffset": 156461
                 },
                 "from": {
                     "file": "/home/checor/Qt/5.11.1/android_armv7/src/android/java/res/values/strings.xml"

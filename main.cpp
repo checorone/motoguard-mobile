@@ -3,6 +3,8 @@
 #include <QIcon>
 #include "MVVM.h"
 
+#include "QZXing.h"
+
 #include "DataNotion/news.h"
 #include "DataNotion/notifyselector.h"
 #include "DataNotion/device.h"
@@ -21,6 +23,8 @@ int main(int argc, char *argv[])
     qRegisterMetaType <NotifyList>      ("NotifyList");
     qRegisterMetaType <MeasureList>     ("MeasureList");
     qRegisterMetaType <LimitsList>      ("LimitsList");
+
+    QZXing::registerQMLTypes();
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 

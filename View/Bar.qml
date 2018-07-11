@@ -82,6 +82,20 @@ ToolBar {
         /*Space between buttons*/
         Item { Layout.fillWidth: true }
 
+
+        ToolButton {
+            BusyIndicator {
+                id: busyIndicator
+                z: 99
+                running: VM.busy
+
+                width: parent.width * 0.66
+                height: parent.height * 0.66
+
+                anchors.centerIn: parent
+            }
+        }
+
         /*Settings button, appears only on monitoring page*/
         ToolButton {
             id: settingsButton

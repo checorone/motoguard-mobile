@@ -14,7 +14,7 @@ Page {
     Label {
         text: "Отсутствует активное устроиство"
         anchors.centerIn: parent
-        visible: VM.activeDeviceID === "None"
+        visible: VM.fulldevID === "None"
     }
 
     ListView {
@@ -67,8 +67,7 @@ Page {
                         color: "#30009900"
                     }
             }
-
-            visible: VM.activeDeviceID === model.id
+            visible: VM.fulldevID === model.id
         }
     }
 

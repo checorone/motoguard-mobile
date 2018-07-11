@@ -28,8 +28,6 @@ signals:
     void getLimitsList();
     void getActiveDevice();
 
-private slots:
-    void checkLimits();
 
 public slots:
     void onconnectionLost();
@@ -38,6 +36,7 @@ public slots:
     void onnotifyListFound(NotifyList);
     void onlimitsListFound(LimitsList);
     void onactiveDeviceFound(QString);
+    void oncheckLimits();
 
 };
 

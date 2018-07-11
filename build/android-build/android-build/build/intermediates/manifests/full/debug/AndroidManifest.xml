@@ -16,10 +16,24 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.gamepad"
+        android:required="false" />
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -73,13 +87,13 @@
                 android:value="/data/local/tmp/qt/" />
             <meta-data
                 android:name="android.app.load_local_libs"
-                android:value="plugins/platforms/android/libqtforandroid.so:plugins/bearer/libqandroidbearer.so:lib/libQt5QuickParticles.so:plugins/position/libqtposition_android.so" />
+                android:value="plugins/platforms/android/libqtforandroid.so:plugins/bearer/libqandroidbearer.so:lib/libQt5QuickParticles.so:plugins/mediaservice/libqtmedia_android.so:lib/libQt5MultimediaQuick.so:plugins/gamepads/libandroidgamepad.so:plugins/position/libqtposition_android.so" />
             <meta-data
                 android:name="android.app.load_local_jars"
-                android:value="jar/QtAndroid.jar:jar/QtAndroidBearer.jar:jar/QtAndroidExtras.jar:jar/QtPositioning.jar" />
+                android:value="jar/QtAndroid.jar:jar/QtAndroidBearer.jar:jar/QtMultimedia.jar:jar/QtAndroidExtras.jar:jar/QtAndroidGamepad.jar:jar/QtPositioning.jar" />
             <meta-data
                 android:name="android.app.static_init_classes"
-                android:value="org.qtproject.qt5.android.positioning.QtPositioning" />
+                android:value="org.qtproject.qt5.android.multimedia.QtMultimediaUtils:org.qtproject.qt5.android.positioning.QtPositioning" />
             <!-- Messages maps -->
             <meta-data
                 android:name="android.app.ministro_not_found_msg"

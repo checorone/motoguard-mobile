@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc
 CXX           = /home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORKAUTH_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_ANDROIDEXTRAS_LIB -DQT_CORE_LIB
-CFLAGS        = -D__ANDROID_API__=16 --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -marm -O0 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -D__ANDROID_API__=16 --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -g -marm -O0 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../../motoguard-mobile -I. -I../../../../Qt/5.11.1/android_armv7/include -I../../../../Qt/5.11.1/android_armv7/include/QtQuick -I../../../../Qt/5.11.1/android_armv7/include/QtGui -I../../../../Qt/5.11.1/android_armv7/include/QtQml -I../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth -I../../../../Qt/5.11.1/android_armv7/include/QtNetwork -I../../../../Qt/5.11.1/android_armv7/include/QtSql -I../../../../Qt/5.11.1/android_armv7/include/QtAndroidExtras -I../../../../Qt/5.11.1/android_armv7/include/QtCore -I. -I../../../../Qt/5.11.1/android_armv7/mkspecs/android-g++
+DEFINES       = -DQZXING_LIBRARY -DZXING_ICONV_CONST -DDISABLE_LIBRARY_FEATURES -DQZXING_MULTIMEDIA -DQZXING_QML -DNOFMAXL -DNO_ICONV -DQT_DEPRECATED_WARNINGS -DQT_QUICK_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORKAUTH_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_ANDROIDEXTRAS_LIB -DQT_CORE_LIB -DQT_QML_DEBUG
+CFLAGS        = -D__ANDROID_API__=16 --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -marm -O0 -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -D__ANDROID_API__=16 --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -g -marm -O0 -std=gnu++11 -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+INCPATH       = -I../../../motoguard-mobile -I. -I../../thirdparty/qzxing/src -I../../thirdparty/qzxing/src/zxing -I../../../../Qt/5.11.1/android_armv7/include -I../../../../Qt/5.11.1/android_armv7/include/QtQuick -I../../../../Qt/5.11.1/android_armv7/include/QtMultimedia -I../../../../Qt/5.11.1/android_armv7/include/QtGui -I../../../../Qt/5.11.1/android_armv7/include/QtQml -I../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth -I../../../../Qt/5.11.1/android_armv7/include/QtNetwork -I../../../../Qt/5.11.1/android_armv7/include/QtSql -I../../../../Qt/5.11.1/android_armv7/include/QtAndroidExtras -I../../../../Qt/5.11.1/android_armv7/include/QtCore -I. -I../../../../Qt/5.11.1/android_armv7/mkspecs/android-g++
 QMAKE         = /home/checor/Qt/5.11.1/android_armv7/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = libmotoguard-mobile.so1.0.0
 DISTDIR = /home/checor/Qt_projects/motoguard-mobile/build/android-build/.tmp/libmotoguard-mobile.so1.0.0
 LINK          = /home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++
 LFLAGS        = --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -Wl,-soname,libmotoguard-mobile.so -Wl,-rpath=/home/checor/Qt/5.11.1/android_armv7/lib -Wl,--no-undefined -Wl,-z,noexecstack -shared
-LIBS          = $(SUBLIBS) -L/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a -L/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9 -L/home/checor/Qt/5.11.1/android_armv7/lib -lQt5Quick -L/opt/android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a -L/opt/android/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9 -lQt5Gui -lQt5Qml -lQt5NetworkAuth -lQt5Network -lQt5Sql -lQt5AndroidExtras -lQt5Core -lGLESv2 -lgnustl_shared -lgcc -llog -lz -lm -ldl -lc
+LIBS          = $(SUBLIBS) -L/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a -L/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9 -L/home/checor/Qt/5.11.1/android_armv7/lib -lQt5Quick -L/opt/android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a -L/opt/android/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.9 -lQt5Multimedia -lQt5Gui -lQt5Qml -lQt5NetworkAuth -lQt5Network -lQt5Sql -lQt5AndroidExtras -lQt5Core -lGLESv2 -lgnustl_shared -lgcc -llog -lz -lm -ldl -lc
 AR            = /home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ar cqs
 RANLIB        = /home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ranlib
 SED           = sed
@@ -50,7 +50,119 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../main.cpp \
+SOURCES       = ../../thirdparty/qzxing/src/CameraImageWrapper.cpp \
+		../../thirdparty/qzxing/src/QZXing.cpp \
+		../../thirdparty/qzxing/src/ImageHandler.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultIO.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArrayIO.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/AztecDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/AztecDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixVersion.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixBitMatrixParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDataBlock.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecodedBitStreamParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixCornerPoint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetectorException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRBitMatrixParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataBlock.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataMask.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecodedBitStreamParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRMode.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPattern.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPatternFinder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPattern.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternFinder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternInfo.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRVersion.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRFormatInformation.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRErrorCorrectionLevel.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417BitMatrixParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417DecodedBitStreamParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417Decoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/PDF417Detector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.cc \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QREncoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.cpp \
+		../../thirdparty/qzxing/src/QZXingFilter.cpp \
+		../../thirdparty/qzxing/src/QZXingImageProvider.cpp \
+		../../main.cpp \
 		../../Model/model.cpp \
 		../../Model/LogicUnits/dataunit.cpp \
 		../../Model/LogicUnits/networkunit.cpp \
@@ -71,6 +183,9 @@ SOURCES       = ../../main.cpp \
 		../../ViewModel/CustomModels/historylistmodel.cpp qrc_qml.cpp \
 		qrc_images.cpp \
 		qrc_config.cpp \
+		moc_ImageHandler.cpp \
+		moc_QZXing.cpp \
+		moc_QZXingFilter.cpp \
 		moc_model.cpp \
 		moc_dataunit.cpp \
 		moc_networkunit.cpp \
@@ -82,7 +197,119 @@ SOURCES       = ../../main.cpp \
 		moc_account.cpp \
 		moc_notifyunit.cpp \
 		moc_historylistmodel.cpp
-OBJECTS       = main.o \
+OBJECTS       = CameraImageWrapper.o \
+		QZXing.o \
+		ImageHandler.o \
+		ResultIO.o \
+		InvertedLuminanceSource.o \
+		ChecksumException.o \
+		ResultPointCallback.o \
+		ResultPoint.o \
+		Result.o \
+		Reader.o \
+		MultiFormatReader.o \
+		LuminanceSource.o \
+		FormatException.o \
+		Exception.o \
+		DecodeHints.o \
+		BinaryBitmap.o \
+		Binarizer.o \
+		BarcodeFormat.o \
+		AztecReader.o \
+		AztecDetectorResult.o \
+		StringUtils.o \
+		Str.o \
+		PerspectiveTransform.o \
+		IllegalArgumentException.o \
+		HybridBinarizer.o \
+		GridSampler.o \
+		GreyscaleRotatedLuminanceSource.o \
+		GreyscaleLuminanceSource.o \
+		GlobalHistogramBinarizer.o \
+		DetectorResult.o \
+		DecoderResult.o \
+		CharacterSetECI.o \
+		BitSource.o \
+		BitMatrix.o \
+		BitArray.o \
+		BitArrayIO.o \
+		WhiteRectangleDetector.o \
+		MonochromeRectangleDetector.o \
+		ReedSolomonException.o \
+		ReedSolomonDecoder.o \
+		GenericGFPoly.o \
+		GenericGF.o \
+		DataMatrixReader.o \
+		UPCEReader.o \
+		UPCEANReader.o \
+		UPCAReader.o \
+		OneDResultPoint.o \
+		OneDReader.o \
+		MultiFormatUPCEANReader.o \
+		MultiFormatOneDReader.o \
+		ITFReader.o \
+		EAN13Reader.o \
+		EAN8Reader.o \
+		Code128Reader.o \
+		Code39Reader.o \
+		CodaBarReader.o \
+		Code93Reader.o \
+		QRCodeReader.o \
+		MultipleBarcodeReader.o \
+		GenericMultipleBarcodeReader.o \
+		ByQuadrantReader.o \
+		QRCodeMultiReader.o \
+		MultiFinderPatternFinder.o \
+		MultiDetector.o \
+		AztecDecoder.o \
+		AztecDetector.o \
+		DataMatrixVersion.o \
+		DataMatrixDecoder.o \
+		DataMatrixBitMatrixParser.o \
+		DataMatrixDataBlock.o \
+		DataMatrixDecodedBitStreamParser.o \
+		DataMatrixCornerPoint.o \
+		DataMatrixDetector.o \
+		DataMatrixDetectorException.o \
+		QRBitMatrixParser.o \
+		QRDataBlock.o \
+		QRDataMask.o \
+		QRDecodedBitStreamParser.o \
+		QRDecoder.o \
+		QRMode.o \
+		QRAlignmentPattern.o \
+		QRAlignmentPatternFinder.o \
+		QRDetector.o \
+		QRFinderPattern.o \
+		QRFinderPatternFinder.o \
+		QRFinderPatternInfo.o \
+		QRVersion.o \
+		QRFormatInformation.o \
+		QRErrorCorrectionLevel.o \
+		ErrorCorrection.o \
+		ModulusGF.o \
+		ModulusPoly.o \
+		PDF417BitMatrixParser.o \
+		PDF417DecodedBitStreamParser.o \
+		PDF417Decoder.o \
+		PDF417Detector.o \
+		LinesSampler.o \
+		PDF417Reader.o \
+		BigUnsignedInABase.o \
+		BigUnsigned.o \
+		BigIntegerUtils.o \
+		BigIntegerAlgorithms.o \
+		BigInteger.o \
+		ByteMatrix.o \
+		QREncoder.o \
+		MaskUtil.o \
+		MatrixUtil.o \
+		QRCode.o \
+		EncodeHint.o \
+		ReedSolomonEncoder.o \
+		QZXingFilter.o \
+		QZXingImageProvider.o \
+		main.o \
 		model.o \
 		dataunit.o \
 		networkunit.o \
@@ -104,6 +331,9 @@ OBJECTS       = main.o \
 		qrc_qml.o \
 		qrc_images.o \
 		qrc_config.o \
+		moc_ImageHandler.o \
+		moc_QZXing.o \
+		moc_QZXingFilter.o \
 		moc_model.o \
 		moc_dataunit.o \
 		moc_networkunit.o \
@@ -131,11 +361,12 @@ DIST          = ../../qtquickcontrols2.conf \
 		../../View/UserPage.qml \
 		../../View/NotifySettingsPopup.qml \
 		../../View/DeviceSettingsPopup.qml \
-		../../View/AddDevicePopup.qml \
 		../../View/DeviceOptionsPopup.qml \
 		../../View/LimitInputPopup.qml \
 		../../View/NotifySettingsPage.qml \
 		../../View/AuthPopup.qml \
+		../../View/BarCodePage.qml \
+		../../View/MessagePopup.qml \
 		/Qt/5.11.1/android_armv7/mkspecs/features/spec_pre.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/common/unix.conf \
 		/Qt/5.11.1/android_armv7/mkspecs/common/linux.conf \
@@ -289,24 +520,151 @@ DIST          = ../../qtquickcontrols2.conf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/exclusive_builds.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/toolchain.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/default_pre.prf \
+		../../../../thirdparty/qzxing/src/QZXing.pri \
 		/Qt/5.11.1/android_armv7/mkspecs/features/resolve_config.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/default_post.prf \
-		/Qt/5.11.1/android_armv7/mkspecs/features/qml_debug.prf \
-		/Qt/5.11.1/android_armv7/mkspecs/features/android/android.prf \
-		/Qt/5.11.1/android_armv7/mkspecs/features/android/android_deployment_settings.prf \
-		/Qt/5.11.1/android_armv7/mkspecs/features/warn_on.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/qt.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/resources.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/moc.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/unix/opengl.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/unix/thread.prf \
+		/Qt/5.11.1/android_armv7/mkspecs/features/qml_debug.prf \
+		/Qt/5.11.1/android_armv7/mkspecs/features/android/android.prf \
+		/Qt/5.11.1/android_armv7/mkspecs/features/android/android_deployment_settings.prf \
+		/Qt/5.11.1/android_armv7/mkspecs/features/warn_on.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/qmake_use.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/file_copies.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/testcase_targets.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/exceptions.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/yacc.prf \
 		/Qt/5.11.1/android_armv7/mkspecs/features/lex.prf \
-		../../../../motoguard-mobile.pro ../../Model/model.h \
+		../../../../motoguard-mobile.pro ../../thirdparty/qzxing/src/QZXing_global.h \
+		../../thirdparty/qzxing/src/CameraImageWrapper.h \
+		../../thirdparty/qzxing/src/ImageHandler.h \
+		../../thirdparty/qzxing/src/QZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/IllegalStateException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Point.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/JavaMath.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataBlock.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DetectorException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/CornerPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/FormatInformation.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataMask.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataBlock.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.h \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerLibrary.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/BlockPair.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/Encoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/WriterException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/UnsupportedEncodingException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/QZXingFilter.h \
+		../../thirdparty/qzxing/src/QZXingImageProvider.h \
+		../../Model/model.h \
 		../../Model/LogicUnits/dataunit.h \
 		../../Model/LogicUnits/networkunit.h \
 		../../ViewModel/viewmodel.h \
@@ -323,7 +681,119 @@ DIST          = ../../qtquickcontrols2.conf \
 		../../Model/LogicUnits/notifyunit.h \
 		../../DataNotion/limits.h \
 		../../DataNotion/dangersituation.h \
-		../../ViewModel/CustomModels/historylistmodel.h ../../main.cpp \
+		../../ViewModel/CustomModels/historylistmodel.h ../../thirdparty/qzxing/src/CameraImageWrapper.cpp \
+		../../thirdparty/qzxing/src/QZXing.cpp \
+		../../thirdparty/qzxing/src/ImageHandler.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultIO.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArrayIO.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/AztecDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/AztecDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixVersion.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixBitMatrixParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDataBlock.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecodedBitStreamParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixCornerPoint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetectorException.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRBitMatrixParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataBlock.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataMask.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecodedBitStreamParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRMode.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPattern.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPatternFinder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRDetector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPattern.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternFinder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternInfo.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRVersion.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRFormatInformation.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRErrorCorrectionLevel.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417BitMatrixParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417DecodedBitStreamParser.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417Decoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/PDF417Detector.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.cpp \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.cc \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.cc \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QREncoder.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.cpp \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.cpp \
+		../../thirdparty/qzxing/src/QZXingFilter.cpp \
+		../../thirdparty/qzxing/src/QZXingImageProvider.cpp \
+		../../main.cpp \
 		../../Model/model.cpp \
 		../../Model/LogicUnits/dataunit.cpp \
 		../../Model/LogicUnits/networkunit.cpp \
@@ -506,17 +976,18 @@ Makefile: ../../motoguard-mobile.pro ../../../../Qt/5.11.1/android_armv7/mkspecs
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/default_pre.prf \
+		../../thirdparty/qzxing/src/QZXing.pri \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/resolve_config.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/default_post.prf \
-		../../../../Qt/5.11.1/android_armv7/mkspecs/features/qml_debug.prf \
-		../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android.prf \
-		../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android_deployment_settings.prf \
-		../../../../Qt/5.11.1/android_armv7/mkspecs/features/warn_on.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/qt.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/resources.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/moc.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/unix/opengl.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/unix/thread.prf \
+		../../../../Qt/5.11.1/android_armv7/mkspecs/features/qml_debug.prf \
+		../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android.prf \
+		../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android_deployment_settings.prf \
+		../../../../Qt/5.11.1/android_armv7/mkspecs/features/warn_on.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/qmake_use.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/file_copies.prf \
 		../../../../Qt/5.11.1/android_armv7/mkspecs/features/testcase_targets.prf \
@@ -528,6 +999,7 @@ Makefile: ../../motoguard-mobile.pro ../../../../Qt/5.11.1/android_armv7/mkspecs
 		../../images.qrc \
 		../../config.qrc \
 		../../../../Qt/5.11.1/android_armv7/lib/libQt5Quick.prl \
+		../../../../Qt/5.11.1/android_armv7/lib/libQt5Multimedia.prl \
 		../../../../Qt/5.11.1/android_armv7/lib/libQt5Gui.prl \
 		../../../../Qt/5.11.1/android_armv7/lib/libQt5Qml.prl \
 		../../../../Qt/5.11.1/android_armv7/lib/libQt5NetworkAuth.prl \
@@ -689,17 +1161,18 @@ Makefile: ../../motoguard-mobile.pro ../../../../Qt/5.11.1/android_armv7/mkspecs
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/default_pre.prf:
+../../thirdparty/qzxing/src/QZXing.pri:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/resolve_config.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/default_post.prf:
-../../../../Qt/5.11.1/android_armv7/mkspecs/features/qml_debug.prf:
-../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android.prf:
-../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android_deployment_settings.prf:
-../../../../Qt/5.11.1/android_armv7/mkspecs/features/warn_on.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/qt.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/resources.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/moc.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/unix/opengl.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/unix/thread.prf:
+../../../../Qt/5.11.1/android_armv7/mkspecs/features/qml_debug.prf:
+../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android.prf:
+../../../../Qt/5.11.1/android_armv7/mkspecs/features/android/android_deployment_settings.prf:
+../../../../Qt/5.11.1/android_armv7/mkspecs/features/warn_on.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/qmake_use.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/file_copies.prf:
 ../../../../Qt/5.11.1/android_armv7/mkspecs/features/testcase_targets.prf:
@@ -711,6 +1184,7 @@ Makefile: ../../motoguard-mobile.pro ../../../../Qt/5.11.1/android_armv7/mkspecs
 ../../images.qrc:
 ../../config.qrc:
 ../../../../Qt/5.11.1/android_armv7/lib/libQt5Quick.prl:
+../../../../Qt/5.11.1/android_armv7/lib/libQt5Multimedia.prl:
 ../../../../Qt/5.11.1/android_armv7/lib/libQt5Gui.prl:
 ../../../../Qt/5.11.1/android_armv7/lib/libQt5Qml.prl:
 ../../../../Qt/5.11.1/android_armv7/lib/libQt5NetworkAuth.prl:
@@ -734,12 +1208,13 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../qml.qrc ../../images.qrc ../../config.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.11.1/android_armv7/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Model/model.h ../../Model/LogicUnits/dataunit.h ../../Model/LogicUnits/networkunit.h ../../ViewModel/viewmodel.h ../../ViewModel/CustomModels/newslistmodel.h ../../ViewModel/CustomModels/notifylistmodel.h ../../DataNotion/news.h ../../DataNotion/notifyselector.h ../../ViewModel/CustomModels/deviceslistmodel.h ../../DataNotion/device.h ../../DataNotion/measurements.h ../../ViewModel/CustomModels/measurelistmodel.h ../../MVVM.h ../../DataNotion/account.h ../../Model/LogicUnits/notifyunit.h ../../DataNotion/limits.h ../../DataNotion/dangersituation.h ../../ViewModel/CustomModels/historylistmodel.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../main.cpp ../../Model/model.cpp ../../Model/LogicUnits/dataunit.cpp ../../Model/LogicUnits/networkunit.cpp ../../ViewModel/viewmodel.cpp ../../ViewModel/CustomModels/newslistmodel.cpp ../../ViewModel/CustomModels/notifylistmodel.cpp ../../DataNotion/news.cpp ../../DataNotion/notifyselector.cpp ../../ViewModel/CustomModels/deviceslistmodel.cpp ../../DataNotion/device.cpp ../../DataNotion/measurements.cpp ../../ViewModel/CustomModels/measurelistmodel.cpp ../../MVVM.cpp ../../DataNotion/account.cpp ../../DataNotion/limits.cpp ../../Model/LogicUnits/notifyunit.cpp ../../DataNotion/dangersituation.cpp ../../ViewModel/CustomModels/historylistmodel.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../thirdparty/qzxing/src/QZXing_global.h ../../thirdparty/qzxing/src/CameraImageWrapper.h ../../thirdparty/qzxing/src/ImageHandler.h ../../thirdparty/qzxing/src/QZXing.h ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h ../../thirdparty/qzxing/src/zxing/zxing/IllegalStateException.h ../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.h ../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h ../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h ../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h ../../thirdparty/qzxing/src/zxing/zxing/Result.h ../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h ../../thirdparty/qzxing/src/zxing/zxing/Reader.h ../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h ../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.h ../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h ../../thirdparty/qzxing/src/zxing/zxing/FormatException.h ../../thirdparty/qzxing/src/zxing/zxing/Exception.h ../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h ../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h ../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h ../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.h ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h ../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/Decoder.h ../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/Detector.h ../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.h ../../thirdparty/qzxing/src/zxing/zxing/common/Str.h ../../thirdparty/qzxing/src/zxing/zxing/common/Point.h ../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h ../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h ../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.h ../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.h ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.h ../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.h ../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h ../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h ../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h ../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h ../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h ../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h ../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h ../../thirdparty/qzxing/src/zxing/zxing/common/Array.h ../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h ../../thirdparty/qzxing/src/zxing/zxing/common/detector/JavaMath.h ../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h ../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.h ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/Version.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/Decoder.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DecodedBitStreamParser.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataBlock.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/BitMatrixParser.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DetectorException.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/Detector.h ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/CornerPoint.h ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.h ../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/FormatInformation.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Decoder.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DecodedBitStreamParser.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataMask.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataBlock.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/BitMatrixParser.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternFinder.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/Detector.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPatternFinder.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h ../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.h ../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.h ../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.h ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.h ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.h ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/BitMatrixParser.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/DecodedBitStreamParser.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/Decoder.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/Detector.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.h ../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.h ../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh ../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.hh ../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.hh ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerLibrary.hh ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.hh ../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/BlockPair.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/Encoder.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.h ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.h ../../thirdparty/qzxing/src/zxing/zxing/WriterException.h ../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.h ../../thirdparty/qzxing/src/zxing/zxing/UnsupportedEncodingException.h ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.h ../../thirdparty/qzxing/src/zxing/zxing/common/Types.h ../../thirdparty/qzxing/src/QZXingFilter.h ../../thirdparty/qzxing/src/QZXingImageProvider.h ../../Model/model.h ../../Model/LogicUnits/dataunit.h ../../Model/LogicUnits/networkunit.h ../../ViewModel/viewmodel.h ../../ViewModel/CustomModels/newslistmodel.h ../../ViewModel/CustomModels/notifylistmodel.h ../../DataNotion/news.h ../../DataNotion/notifyselector.h ../../ViewModel/CustomModels/deviceslistmodel.h ../../DataNotion/device.h ../../DataNotion/measurements.h ../../ViewModel/CustomModels/measurelistmodel.h ../../MVVM.h ../../DataNotion/account.h ../../Model/LogicUnits/notifyunit.h ../../DataNotion/limits.h ../../DataNotion/dangersituation.h ../../ViewModel/CustomModels/historylistmodel.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../thirdparty/qzxing/src/CameraImageWrapper.cpp ../../thirdparty/qzxing/src/QZXing.cpp ../../thirdparty/qzxing/src/ImageHandler.cpp ../../thirdparty/qzxing/src/zxing/zxing/ResultIO.cpp ../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.cpp ../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.cpp ../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.cpp ../../thirdparty/qzxing/src/zxing/zxing/Result.cpp ../../thirdparty/qzxing/src/zxing/zxing/Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/FormatException.cpp ../../thirdparty/qzxing/src/zxing/zxing/Exception.cpp ../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.cpp ../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.cpp ../../thirdparty/qzxing/src/zxing/zxing/Binarizer.cpp ../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/Str.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitArrayIO.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/AztecDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/AztecDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixVersion.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixBitMatrixParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDataBlock.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecodedBitStreamParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixCornerPoint.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetectorException.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRBitMatrixParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataBlock.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataMask.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecodedBitStreamParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRMode.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPattern.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPatternFinder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPattern.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternFinder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternInfo.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRVersion.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRFormatInformation.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRErrorCorrectionLevel.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417BitMatrixParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417DecodedBitStreamParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417Decoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/PDF417Detector.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.cpp ../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.cc ../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.cc ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.cc ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.cc ../../thirdparty/qzxing/src/zxing/bigint/BigInteger.cc ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QREncoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.cpp ../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.cpp ../../thirdparty/qzxing/src/QZXingFilter.cpp ../../thirdparty/qzxing/src/QZXingImageProvider.cpp ../../main.cpp ../../Model/model.cpp ../../Model/LogicUnits/dataunit.cpp ../../Model/LogicUnits/networkunit.cpp ../../ViewModel/viewmodel.cpp ../../ViewModel/CustomModels/newslistmodel.cpp ../../ViewModel/CustomModels/notifylistmodel.cpp ../../DataNotion/news.cpp ../../DataNotion/notifyselector.cpp ../../ViewModel/CustomModels/deviceslistmodel.cpp ../../DataNotion/device.cpp ../../DataNotion/measurements.cpp ../../ViewModel/CustomModels/measurelistmodel.cpp ../../MVVM.cpp ../../DataNotion/account.cpp ../../DataNotion/limits.cpp ../../Model/LogicUnits/notifyunit.cpp ../../DataNotion/dangersituation.cpp ../../ViewModel/CustomModels/historylistmodel.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
+	-$(DEL_FILE) -r pkgconfig libmotoguard-mobile.prl
 	-$(DEL_FILE) *~ core *.core
 
 
@@ -767,11 +1242,11 @@ qrc_qml.cpp: ../../qml.qrc \
 		../../View/LimitInputPopup.qml \
 		../../View/DevicesPage.qml \
 		../../View/AuthPopup.qml \
+		../../View/MessagePopup.qml \
 		../../View/DataPage.qml \
 		../../View/Stack.qml \
 		../../View/NotifySettingsPopup.qml \
 		../../View/PositionPage.qml \
-		../../View/AddDevicePopup.qml \
 		../../View/NotifySettingsPage.qml \
 		../../View/DrawerPanel.qml \
 		../../View/Bar.qml \
@@ -780,6 +1255,7 @@ qrc_qml.cpp: ../../qml.qrc \
 		../../View/SettingsPage.qml \
 		../../View/DeviceOptionsPopup.qml \
 		../../View/main.qml \
+		../../View/BarCodePage.qml \
 		../../View/MonitoringPage.qml \
 		../../View/DeviceSettingsPopup.qml
 	/home/checor/Qt/5.11.1/android_armv7/bin/rcc -name qml ../../qml.qrc -o qrc_qml.cpp
@@ -806,11 +1282,284 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../../Qt/5.11.1/android_armv7/mkspecs/features/data/dummy.cpp
-	/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++ -D__ANDROID_API__=16 --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -g -marm -O0 -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h ../../../../Qt/5.11.1/android_armv7/mkspecs/features/data/dummy.cpp
+	/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-g++ -D__ANDROID_API__=16 --sysroot=/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/ -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -g -marm -O0 -std=gnu++11 -dM -E -o moc_predefs.h ../../../../Qt/5.11.1/android_armv7/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_model.cpp moc_dataunit.cpp moc_networkunit.cpp moc_viewmodel.cpp moc_newslistmodel.cpp moc_notifylistmodel.cpp moc_deviceslistmodel.cpp moc_measurelistmodel.cpp moc_account.cpp moc_notifyunit.cpp moc_historylistmodel.cpp
+compiler_moc_header_make_all: moc_ImageHandler.cpp moc_QZXing.cpp moc_QZXingFilter.cpp moc_model.cpp moc_dataunit.cpp moc_networkunit.cpp moc_viewmodel.cpp moc_newslistmodel.cpp moc_notifylistmodel.cpp moc_deviceslistmodel.cpp moc_measurelistmodel.cpp moc_account.cpp moc_notifyunit.cpp moc_historylistmodel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_model.cpp moc_dataunit.cpp moc_networkunit.cpp moc_viewmodel.cpp moc_newslistmodel.cpp moc_notifylistmodel.cpp moc_deviceslistmodel.cpp moc_measurelistmodel.cpp moc_account.cpp moc_notifyunit.cpp moc_historylistmodel.cpp
+	-$(DEL_FILE) moc_ImageHandler.cpp moc_QZXing.cpp moc_QZXingFilter.cpp moc_model.cpp moc_dataunit.cpp moc_networkunit.cpp moc_viewmodel.cpp moc_newslistmodel.cpp moc_notifylistmodel.cpp moc_deviceslistmodel.cpp moc_measurelistmodel.cpp moc_account.cpp moc_notifyunit.cpp moc_historylistmodel.cpp
+moc_ImageHandler.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QSet \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QReadWriteLock \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qreadwritelock.h \
+		../../thirdparty/qzxing/src/ImageHandler.h \
+		moc_predefs.h \
+		../../../../Qt/5.11.1/android_armv7/bin/moc
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../thirdparty/qzxing/src/ImageHandler.h -o moc_ImageHandler.cpp
+
+moc_QZXing.cpp: ../../thirdparty/qzxing/src/QZXing_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtGlobal \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../thirdparty/qzxing/src/QZXing.h \
+		moc_predefs.h \
+		../../../../Qt/5.11.1/android_armv7/bin/moc
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../thirdparty/qzxing/src/QZXing.h -o moc_QZXing.cpp
+
+moc_QZXingFilter.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/QAbstractVideoFilter \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qabstractvideofilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qvideoframe.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qabstractvideobuffer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qvideosurfaceformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QFuture \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfuture.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfutureinterface.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrunnable.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qexception.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qresultstore.h \
+		../../thirdparty/qzxing/src/QZXing.h \
+		../../thirdparty/qzxing/src/QZXing_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtGlobal \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../thirdparty/qzxing/src/QZXingFilter.h \
+		moc_predefs.h \
+		../../../../Qt/5.11.1/android_armv7/bin/moc
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../thirdparty/qzxing/src/QZXingFilter.h -o moc_QZXingFilter.cpp
+
 moc_model.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
@@ -877,8 +1626,6 @@ moc_model.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
 		../../Model/LogicUnits/networkunit.h \
 		../../DataNotion/account.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
-		../../Model/LogicUnits/notifyunit.h \
 		../../DataNotion/measurements.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/QList \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qevent.h \
@@ -910,15 +1657,17 @@ moc_model.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector2d.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtouchdevice.h \
+		../../DataNotion/device.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
+		../../Model/LogicUnits/notifyunit.h \
 		../../DataNotion/notifyselector.h \
 		../../DataNotion/limits.h \
 		../../DataNotion/dangersituation.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDateTime \
-		../../DataNotion/device.h \
 		../../Model/model.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/model.h -o moc_model.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/model.h -o moc_model.cpp
 
 moc_dataunit.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
@@ -986,7 +1735,7 @@ moc_dataunit.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../Model/LogicUnits/dataunit.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/LogicUnits/dataunit.h -o moc_dataunit.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/LogicUnits/dataunit.h -o moc_dataunit.cpp
 
 moc_networkunit.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
@@ -1044,11 +1793,43 @@ moc_networkunit.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject 
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatetime.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../DataNotion/measurements.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QList \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector2d.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtouchdevice.h \
+		../../DataNotion/device.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
 		../../Model/LogicUnits/networkunit.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/LogicUnits/networkunit.h -o moc_networkunit.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/LogicUnits/networkunit.h -o moc_networkunit.cpp
 
 moc_viewmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
@@ -1153,7 +1934,7 @@ moc_viewmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../ViewModel/viewmodel.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/viewmodel.h -o moc_viewmodel.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/viewmodel.h -o moc_viewmodel.cpp
 
 moc_newslistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbstractListModel \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractitemmodel.h \
@@ -1227,7 +2008,7 @@ moc_newslistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbstr
 		../../ViewModel/CustomModels/newslistmodel.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/newslistmodel.h -o moc_newslistmodel.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/newslistmodel.h -o moc_newslistmodel.cpp
 
 moc_notifylistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbstractListModel \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractitemmodel.h \
@@ -1299,7 +2080,7 @@ moc_notifylistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbs
 		../../ViewModel/CustomModels/notifylistmodel.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/notifylistmodel.h -o moc_notifylistmodel.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/notifylistmodel.h -o moc_notifylistmodel.cpp
 
 moc_deviceslistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbstractListModel \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractitemmodel.h \
@@ -1371,7 +2152,7 @@ moc_deviceslistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAb
 		../../ViewModel/CustomModels/deviceslistmodel.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/deviceslistmodel.h -o moc_deviceslistmodel.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/deviceslistmodel.h -o moc_deviceslistmodel.cpp
 
 moc_measurelistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbstractListModel \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractitemmodel.h \
@@ -1462,7 +2243,7 @@ moc_measurelistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAb
 		../../ViewModel/CustomModels/measurelistmodel.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/measurelistmodel.h -o moc_measurelistmodel.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/measurelistmodel.h -o moc_measurelistmodel.cpp
 
 moc_account.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
@@ -1522,7 +2303,7 @@ moc_account.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../DataNotion/account.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../DataNotion/account.h -o moc_account.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../DataNotion/account.h -o moc_account.cpp
 
 moc_notifyunit.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
@@ -1616,7 +2397,7 @@ moc_notifyunit.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
 		../../Model/LogicUnits/notifyunit.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/LogicUnits/notifyunit.h -o moc_notifyunit.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../Model/LogicUnits/notifyunit.h -o moc_notifyunit.cpp
 
 moc_historylistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAbstractListModel \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractitemmodel.h \
@@ -1690,7 +2471,7 @@ moc_historylistmodel.cpp: ../../../../Qt/5.11.1/android_armv7/include/QtCore/QAb
 		../../ViewModel/CustomModels/historylistmodel.h \
 		moc_predefs.h \
 		../../../../Qt/5.11.1/android_armv7/bin/moc
-	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/historylistmodel.h -o moc_historylistmodel.cpp
+	/home/checor/Qt/5.11.1/android_armv7/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/checor/Qt/5.11.1/android_armv7/mkspecs/android-g++ -I/home/checor/Qt_projects/motoguard-mobile -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src -I/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/zxing -I/home/checor/Qt/5.11.1/android_armv7/include -I/home/checor/Qt/5.11.1/android_armv7/include/QtQuick -I/home/checor/Qt/5.11.1/android_armv7/include/QtMultimedia -I/home/checor/Qt/5.11.1/android_armv7/include/QtGui -I/home/checor/Qt/5.11.1/android_armv7/include/QtQml -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetworkAuth -I/home/checor/Qt/5.11.1/android_armv7/include/QtNetwork -I/home/checor/Qt/5.11.1/android_armv7/include/QtSql -I/home/checor/Qt/5.11.1/android_armv7/include/QtAndroidExtras -I/home/checor/Qt/5.11.1/android_armv7/include/QtCore -I. -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/include -I/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include -I/home/checor/android-ndk-r10e/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9/include-fixed -I/home/checor/android-ndk-r10e/platforms/android-16/arch-arm/usr/include ../../ViewModel/CustomModels/historylistmodel.h -o moc_historylistmodel.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1705,6 +2486,2580 @@ compiler_lex_clean:
 compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
+
+CameraImageWrapper.o: ../../thirdparty/qzxing/src/CameraImageWrapper.cpp ../../thirdparty/qzxing/src/CameraImageWrapper.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QString \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QColor
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CameraImageWrapper.o ../../thirdparty/qzxing/src/CameraImageWrapper.cpp
+
+QZXing.o: ../../thirdparty/qzxing/src/QZXing.cpp ../../thirdparty/qzxing/src/QZXing.h \
+		../../thirdparty/qzxing/src/QZXing_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtGlobal \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/CameraImageWrapper.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QString \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.h \
+		../../thirdparty/qzxing/src/ImageHandler.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QSet \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QReadWriteLock \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qreadwritelock.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QTime \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatetime.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QUrl \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QFileInfo \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfileinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/Encoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QColor \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QTextCodec \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextcodec.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqml.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlprivate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qtqmlglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qtqml-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlparserstatus.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlpropertyvaluesource.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmllist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetaobject.h \
+		../../thirdparty/qzxing/src/QZXingFilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/QAbstractVideoFilter \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qabstractvideofilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qvideoframe.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qabstractvideobuffer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qvideosurfaceformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QFuture \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfuture.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfutureinterface.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrunnable.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qexception.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qresultstore.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/QQmlEngine \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlengine.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qjsengine.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qjsvalue.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmldebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlerror.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/QQmlContext \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlcontext.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/QQuickImageProvider \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qquickimageprovider.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qtquickglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qtquick-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixmap.h \
+		../../thirdparty/qzxing/src/QZXingImageProvider.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QZXing.o ../../thirdparty/qzxing/src/QZXing.cpp
+
+ImageHandler.o: ../../thirdparty/qzxing/src/ImageHandler.cpp ../../thirdparty/qzxing/src/ImageHandler.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QSet \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QReadWriteLock \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qreadwritelock.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QPainter \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtextoption.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpen.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qbrush.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qfontinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qfont.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qfontmetrics.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QThread \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qthread.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QTime \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatetime.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/QQuickItem \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qquickitem.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qtquickglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qtqmlglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qtqml-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qtquick-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqml.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlprivate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlparserstatus.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlpropertyvaluesource.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmllist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlcomponent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlerror.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qjsvalue.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QList \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector2d.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qaccessible.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qeventloop.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/QQuickItemGrabResult \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qquickitemgrabresult.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QSize \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QUrl \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/QJSValue \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/QQuickWindow \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qquickwindow.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qsgrendererinterface.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qsgnode.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qsggeometry.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qopengl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qt_windows.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qopengles2ext.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qopenglext.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QRectF \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QMatrix4x4 \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix4x4.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector3d.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector4d.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qquaternion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qgenericmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindow.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QEvent \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QMargins \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QRect \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qsurface.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qsurfaceformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qicon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcursor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmldebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ImageHandler.o ../../thirdparty/qzxing/src/ImageHandler.cpp
+
+ResultIO.o: ../../thirdparty/qzxing/src/zxing/zxing/ResultIO.cpp ../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultIO.o ../../thirdparty/qzxing/src/zxing/zxing/ResultIO.cpp
+
+InvertedLuminanceSource.o: ../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o InvertedLuminanceSource.o ../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.cpp
+
+ChecksumException.o: ../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.cpp ../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ChecksumException.o ../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.cpp
+
+ResultPointCallback.o: ../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.cpp ../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultPointCallback.o ../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.cpp
+
+ResultPoint.o: ../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.cpp ../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultPoint.o ../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.cpp
+
+Result.o: ../../thirdparty/qzxing/src/zxing/zxing/Result.cpp ../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Result.o ../../thirdparty/qzxing/src/zxing/zxing/Result.cpp
+
+Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Reader.o ../../thirdparty/qzxing/src/zxing/zxing/Reader.cpp
+
+MultiFormatReader.o: ../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultiFormatReader.o ../../thirdparty/qzxing/src/zxing/zxing/MultiFormatReader.cpp
+
+LuminanceSource.o: ../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/InvertedLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LuminanceSource.o ../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.cpp
+
+FormatException.o: ../../thirdparty/qzxing/src/zxing/zxing/FormatException.cpp ../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FormatException.o ../../thirdparty/qzxing/src/zxing/zxing/FormatException.cpp
+
+Exception.o: ../../thirdparty/qzxing/src/zxing/zxing/Exception.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Exception.o ../../thirdparty/qzxing/src/zxing/zxing/Exception.cpp
+
+DecodeHints.o: ../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.cpp ../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DecodeHints.o ../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.cpp
+
+BinaryBitmap.o: ../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.cpp ../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BinaryBitmap.o ../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.cpp
+
+Binarizer.o: ../../thirdparty/qzxing/src/zxing/zxing/Binarizer.cpp ../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Binarizer.o ../../thirdparty/qzxing/src/zxing/zxing/Binarizer.cpp
+
+BarcodeFormat.o: ../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.cpp ../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BarcodeFormat.o ../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.cpp
+
+AztecReader.o: ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AztecReader.o ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecReader.cpp
+
+AztecDetectorResult.o: ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AztecDetectorResult.o ../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.cpp
+
+StringUtils.o: ../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StringUtils.o ../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.cpp
+
+Str.o: ../../thirdparty/qzxing/src/zxing/zxing/common/Str.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Str.o ../../thirdparty/qzxing/src/zxing/zxing/common/Str.cpp
+
+PerspectiveTransform.o: ../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PerspectiveTransform.o ../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.cpp
+
+IllegalArgumentException.o: ../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o IllegalArgumentException.o ../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.cpp
+
+HybridBinarizer.o: ../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o HybridBinarizer.o ../../thirdparty/qzxing/src/zxing/zxing/common/HybridBinarizer.cpp
+
+GridSampler.o: ../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GridSampler.o ../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.cpp
+
+GreyscaleRotatedLuminanceSource.o: ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GreyscaleRotatedLuminanceSource.o ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.cpp
+
+GreyscaleLuminanceSource.o: ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleRotatedLuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GreyscaleLuminanceSource.o ../../thirdparty/qzxing/src/zxing/zxing/common/GreyscaleLuminanceSource.cpp
+
+GlobalHistogramBinarizer.o: ../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GlobalHistogramBinarizer.o ../../thirdparty/qzxing/src/zxing/zxing/common/GlobalHistogramBinarizer.cpp
+
+DetectorResult.o: ../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DetectorResult.o ../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.cpp
+
+DecoderResult.o: ../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DecoderResult.o ../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.cpp
+
+CharacterSetECI.o: ../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CharacterSetECI.o ../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.cpp
+
+BitSource.o: ../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BitSource.o ../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.cpp
+
+BitMatrix.o: ../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BitMatrix.o ../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.cpp
+
+BitArray.o: ../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BitArray.o ../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.cpp
+
+BitArrayIO.o: ../../thirdparty/qzxing/src/zxing/zxing/common/BitArrayIO.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BitArrayIO.o ../../thirdparty/qzxing/src/zxing/zxing/common/BitArrayIO.cpp
+
+WhiteRectangleDetector.o: ../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WhiteRectangleDetector.o ../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.cpp
+
+MonochromeRectangleDetector.o: ../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MonochromeRectangleDetector.o ../../thirdparty/qzxing/src/zxing/zxing/common/detector/MonochromeRectangleDetector.cpp
+
+ReedSolomonException.o: ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ReedSolomonException.o ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.cpp
+
+ReedSolomonDecoder.o: ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/IllegalStateException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ReedSolomonDecoder.o ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.cpp
+
+GenericGFPoly.o: ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GenericGFPoly.o ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.cpp
+
+GenericGF.o: ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GenericGF.o ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.cpp
+
+DataMatrixReader.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixReader.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixReader.cpp
+
+UPCEReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o UPCEReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.cpp
+
+UPCEANReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o UPCEANReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.cpp
+
+UPCAReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o UPCAReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.cpp
+
+OneDResultPoint.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OneDResultPoint.o ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.cpp
+
+OneDReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OneDReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.cpp
+
+MultiFormatUPCEANReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCAReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultiFormatUPCEANReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.cpp
+
+MultiFormatOneDReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatUPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultiFormatOneDReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/MultiFormatOneDReader.cpp
+
+ITFReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ITFReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/ITFReader.cpp
+
+EAN13Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EAN13Reader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN13Reader.cpp
+
+EAN8Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/UPCEANReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EAN8Reader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/EAN8Reader.cpp
+
+Code128Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Code128Reader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/Code128Reader.cpp
+
+Code39Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Code39Reader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/Code39Reader.cpp
+
+CodaBarReader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CodaBarReader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/CodaBarReader.cpp
+
+Code93Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/oned/OneDResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Code93Reader.o ../../thirdparty/qzxing/src/zxing/zxing/oned/Code93Reader.cpp
+
+QRCodeReader.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRCodeReader.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.cpp
+
+MultipleBarcodeReader.o: ../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultipleBarcodeReader.o ../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.cpp
+
+GenericMultipleBarcodeReader.o: ../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GenericMultipleBarcodeReader.o ../../thirdparty/qzxing/src/zxing/zxing/multi/GenericMultipleBarcodeReader.cpp
+
+ByQuadrantReader.o: ../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ByQuadrantReader.o ../../thirdparty/qzxing/src/zxing/zxing/multi/ByQuadrantReader.cpp
+
+QRCodeMultiReader.o: ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/MultipleBarcodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRCodeReader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRCodeMultiReader.o ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/QRCodeMultiReader.cpp
+
+MultiFinderPatternFinder.o: ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultiFinderPatternFinder.o ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.cpp
+
+MultiDetector.o: ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiFinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MultiDetector.o ../../thirdparty/qzxing/src/zxing/zxing/multi/qrcode/detector/MultiDetector.cpp
+
+AztecDecoder.o: ../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/AztecDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AztecDecoder.o ../../thirdparty/qzxing/src/zxing/zxing/aztec/decoder/AztecDecoder.cpp
+
+AztecDetector.o: ../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/AztecDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/aztec/AztecDetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AztecDetector.o ../../thirdparty/qzxing/src/zxing/zxing/aztec/detector/AztecDetector.cpp
+
+DataMatrixVersion.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixVersion.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixVersion.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/DataMatrixVersion.cpp
+
+DataMatrixDecoder.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataBlock.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixDecoder.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecoder.cpp
+
+DataMatrixBitMatrixParser.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixBitMatrixParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/Version.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixBitMatrixParser.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixBitMatrixParser.cpp
+
+DataMatrixDataBlock.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDataBlock.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataBlock.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixDataBlock.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDataBlock.cpp
+
+DataMatrixDecodedBitStreamParser.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecodedBitStreamParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixDecodedBitStreamParser.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/decoder/DataMatrixDecodedBitStreamParser.cpp
+
+DataMatrixCornerPoint.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixCornerPoint.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/CornerPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixCornerPoint.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixCornerPoint.cpp
+
+DataMatrixDetector.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/WhiteRectangleDetector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixDetector.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetector.cpp
+
+DataMatrixDetectorException.o: ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetectorException.cpp ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DetectorException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DataMatrixDetectorException.o ../../thirdparty/qzxing/src/zxing/zxing/datamatrix/detector/DataMatrixDetectorException.cpp
+
+QRBitMatrixParser.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRBitMatrixParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/FormatInformation.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataMask.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRBitMatrixParser.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRBitMatrixParser.cpp
+
+QRDataBlock.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataBlock.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataBlock.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRDataBlock.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataBlock.cpp
+
+QRDataMask.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataMask.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataMask.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRDataMask.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDataMask.cpp
+
+QRDecodedBitStreamParser.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecodedBitStreamParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRDecodedBitStreamParser.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecodedBitStreamParser.cpp
+
+QRDecoder.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonDecoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/FormatInformation.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DataBlock.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ChecksumException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRDecoder.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRDecoder.cpp
+
+QRMode.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRMode.cpp ../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRMode.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/QRMode.cpp
+
+QRAlignmentPattern.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPattern.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRAlignmentPattern.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPattern.cpp
+
+QRAlignmentPatternFinder.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPatternFinder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRAlignmentPatternFinder.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRAlignmentPatternFinder.cpp
+
+QRDetector.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRDetector.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/AlignmentPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRDetector.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRDetector.cpp
+
+QRFinderPattern.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPattern.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRFinderPattern.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPattern.cpp
+
+QRFinderPatternFinder.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternFinder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternFinder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRFinderPatternFinder.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternFinder.cpp
+
+QRFinderPatternInfo.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternInfo.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPatternInfo.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/FinderPattern.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRFinderPatternInfo.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/detector/QRFinderPatternInfo.cpp
+
+QRVersion.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRVersion.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/FormatInformation.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRVersion.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRVersion.cpp
+
+QRFormatInformation.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRFormatInformation.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/FormatInformation.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRFormatInformation.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRFormatInformation.cpp
+
+QRErrorCorrectionLevel.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRErrorCorrectionLevel.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRErrorCorrectionLevel.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/QRErrorCorrectionLevel.cpp
+
+ErrorCorrection.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ErrorCorrection.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.cpp
+
+ModulusGF.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ModulusGF.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.cpp
+
+ModulusPoly.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ModulusPoly.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.cpp
+
+PDF417BitMatrixParser.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417BitMatrixParser.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PDF417BitMatrixParser.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417BitMatrixParser.cpp
+
+PDF417DecodedBitStreamParser.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417DecodedBitStreamParser.cpp ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PDF417DecodedBitStreamParser.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417DecodedBitStreamParser.cpp
+
+PDF417Decoder.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417Decoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/DecodedBitStreamParser.h \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PDF417Decoder.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/PDF417Decoder.cpp
+
+PDF417Detector.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/PDF417Detector.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Point.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/GridSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/PerspectiveTransform.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/JavaMath.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/detector/MathUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PDF417Detector.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/PDF417Detector.cpp
+
+LinesSampler.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Point.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/BitMatrixParser.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/FormatException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LinesSampler.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/LinesSampler.cpp
+
+PDF417Reader.o: ../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.cpp ../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Reader.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BinaryBitmap.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Binarizer.h \
+		../../thirdparty/qzxing/src/zxing/zxing/LuminanceSource.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Result.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Str.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPoint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/Decoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ErrorCorrection.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DecoderResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/decoder/ec/ModulusPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/pdf417/detector/Detector.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Point.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/DetectorResult.h \
+		../../thirdparty/qzxing/src/zxing/zxing/NotFoundException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PDF417Reader.o ../../thirdparty/qzxing/src/zxing/zxing/pdf417/PDF417Reader.cpp
+
+BigUnsignedInABase.o: ../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.cc ../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BigUnsignedInABase.o ../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.cc
+
+BigUnsigned.o: ../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.cc ../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BigUnsigned.o ../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.cc
+
+BigIntegerUtils.o: ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.cc ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsignedInABase.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BigIntegerUtils.o ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerUtils.cc
+
+BigIntegerAlgorithms.o: ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.cc ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BigIntegerAlgorithms.o ../../thirdparty/qzxing/src/zxing/bigint/BigIntegerAlgorithms.cc
+
+BigInteger.o: ../../thirdparty/qzxing/src/zxing/bigint/BigInteger.cc ../../thirdparty/qzxing/src/zxing/bigint/BigInteger.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/BigUnsigned.hh \
+		../../thirdparty/qzxing/src/zxing/bigint/NumberlikeArray.hh
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BigInteger.o ../../thirdparty/qzxing/src/zxing/bigint/BigInteger.cc
+
+ByteMatrix.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ByteMatrix.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.cpp
+
+QREncoder.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QREncoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/Encoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/CharacterSetECI.h \
+		../../thirdparty/qzxing/src/zxing/zxing/DecodeHints.h \
+		../../thirdparty/qzxing/src/zxing/zxing/BarcodeFormat.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ResultPointCallback.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/UnsupportedEncodingException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/WriterException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/BlockPair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QList \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector2d.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtouchdevice.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/StringUtils.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QREncoder.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QREncoder.cpp
+
+MaskUtil.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MaskUtil.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.cpp
+
+MatrixUtil.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MaskUtil.h \
+		../../thirdparty/qzxing/src/zxing/zxing/WriterException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MatrixUtil.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/MatrixUtil.cpp
+
+QRCode.o: ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.cpp ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/decoder/Mode.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/Version.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitMatrix.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/BitArray.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ZXing.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/IllegalArgumentException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/ByteMatrix.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QRCode.o ../../thirdparty/qzxing/src/zxing/zxing/qrcode/encoder/QRCode.cpp
+
+EncodeHint.o: ../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.cpp ../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.h \
+		../../thirdparty/qzxing/src/zxing/zxing/qrcode/ErrorCorrectionLevel.h \
+		../../thirdparty/qzxing/src/zxing/zxing/ReaderException.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EncodeHint.o ../../thirdparty/qzxing/src/zxing/zxing/EncodeHint.cpp
+
+ReedSolomonEncoder.o: ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.cpp ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGFPoly.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Array.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Counted.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/GenericGF.h \
+		../../thirdparty/qzxing/src/zxing/zxing/common/Types.h \
+		../../thirdparty/qzxing/src/zxing/zxing/Exception.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ReedSolomonEncoder.o ../../thirdparty/qzxing/src/zxing/zxing/common/reedsolomon/ReedSolomonEncoder.cpp
+
+QZXingFilter.o: ../../thirdparty/qzxing/src/QZXingFilter.cpp ../../thirdparty/qzxing/src/QZXingFilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/QAbstractVideoFilter \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qabstractvideofilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qvideoframe.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qabstractvideobuffer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qmultimedia.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtMultimedia/qvideosurfaceformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QFuture \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfuture.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfutureinterface.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrunnable.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qexception.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qresultstore.h \
+		../../thirdparty/qzxing/src/QZXing.h \
+		../../thirdparty/qzxing/src/QZXing_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtGlobal \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/QtConcurrent \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/QtConcurrentDepends \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtCore \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtCoreDepends \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractanimation.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstracteventdispatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qeventloop.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractitemmodel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractnativeeventfilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractproxymodel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstractstate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qabstracttransition.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qanimationgroup.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydataops.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydatapointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasictimer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbitarray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbuffer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraymatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcollator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcommandlineoption.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcommandlineparser.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcryptographichash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatetime.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdeadlinetimer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qelapsedtimer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdir.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfileinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdiriterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qeasingcurve.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qendian.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qeventtransition.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfactoryinterface.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfileselector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QStringList \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfilesystemwatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfinalstate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfuturesynchronizer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfuturewatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhistorystate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qidentityproxymodel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qisenum.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qitemselectionmodel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsonarray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsonvalue.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsondocument.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsonobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlibrary.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlibraryinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversionnumber.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlinkedlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlockfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qloggingcategory.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmessageauthenticationcode.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmimedata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmimedatabase.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmimetype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectcleanuphandler.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qoperatingsystemversion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qparallelanimationgroup.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpauseanimation.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qplugin.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpluginloader.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocess.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpropertyanimation.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariantanimation.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qqueue.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrandom.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qreadwritelock.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregularexpression.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qresource.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsavefile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedvaluerollback.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsemaphore.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsequentialanimationgroup.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsettings.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedmemory.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsignalmapper.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsignaltransition.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsocketnotifier.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsortfilterproxymodel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstack.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstandardpaths.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstatemachine.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstorageinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlistmodel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemsemaphore.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtemporarydir.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtemporaryfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextboundaryfinder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextcodec.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qthread.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qthreadpool.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qthreadstorage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtimeline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtimer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtimezone.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtranslator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypetraits.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/quuid.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qwaitcondition.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qwineventnotifier.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qxmlstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcoreversion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentcompilertest.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrent_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentexception.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentfilter.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentfilterkernel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentiteratekernel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentmedian.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentthreadengine.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentmapkernel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentreducekernel.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentfunctionwrappers.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentrun.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentrunbase.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtConcurrent/qtconcurrentversion.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QZXingFilter.o ../../thirdparty/qzxing/src/QZXingFilter.cpp
+
+QZXingImageProvider.o: ../../thirdparty/qzxing/src/QZXingImageProvider.cpp ../../thirdparty/qzxing/src/QZXingImageProvider.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/QQuickImageProvider \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qquickimageprovider.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qtquickglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qtqmlglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qconfig.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlogging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qflags.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmutex.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnumeric.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qtqml-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQuick/qtquick-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qimage.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qcolor.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgb.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qnamespace.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiterator.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrefcount.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qarraydata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstring.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qchar.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringview.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpair.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qregexp.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qrgba64.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtransform.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qmatrix.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpolygon.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetatype.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qline.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qpixmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlengine.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qjsengine.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qjsvalue.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmldebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqml.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlprivate.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlparserstatus.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlpropertyvaluesource.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmllist.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtQml/qqmlerror.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QUrlQuery \
+		../../thirdparty/qzxing/src/QZXing.h \
+		../../thirdparty/qzxing/src/QZXing_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtGlobal \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QObject
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QZXingImageProvider.o ../../thirdparty/qzxing/src/QZXingImageProvider.cpp
 
 main.o: ../../main.cpp ../../../../Qt/5.11.1/android_armv7/include/QtGui/QGuiApplication \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qguiapplication.h \
@@ -1857,7 +5212,11 @@ main.o: ../../main.cpp ../../../../Qt/5.11.1/android_armv7/include/QtGui/QGuiApp
 		../../../../Qt/5.11.1/android_armv7/include/QtSql/qsqlquery.h \
 		../../Model/LogicUnits/networkunit.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
-		../../Model/LogicUnits/notifyunit.h
+		../../Model/LogicUnits/notifyunit.h \
+		../../thirdparty/qzxing/src/QZXing.h \
+		../../thirdparty/qzxing/src/QZXing_global.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QtGlobal \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QImage
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 model.o: ../../Model/model.cpp ../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
@@ -1940,8 +5299,6 @@ model.o: ../../Model/model.cpp ../../../../Qt/5.11.1/android_armv7/include/QtCor
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatetime.h \
 		../../Model/LogicUnits/networkunit.h \
 		../../DataNotion/account.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
-		../../Model/LogicUnits/notifyunit.h \
 		../../DataNotion/measurements.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/QList \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qevent.h \
@@ -1961,11 +5318,13 @@ model.o: ../../Model/model.cpp ../../../../Qt/5.11.1/android_armv7/include/QtCor
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector2d.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtouchdevice.h \
+		../../DataNotion/device.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
+		../../Model/LogicUnits/notifyunit.h \
 		../../DataNotion/notifyselector.h \
 		../../DataNotion/limits.h \
 		../../DataNotion/dangersituation.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDateTime \
-		../../DataNotion/device.h
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDateTime
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o model.o ../../Model/model.cpp
 
 dataunit.o: ../../Model/LogicUnits/dataunit.cpp ../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
@@ -2106,25 +5465,48 @@ networkunit.o: ../../Model/LogicUnits/networkunit.cpp ../../Model/LogicUnits/net
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatetime.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qshareddata.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qhash.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
+		../../DataNotion/measurements.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/QList \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qevent.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qregion.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qrect.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmargins.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsize.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qpoint.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdatastream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qiodevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvariant.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qmap.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qdebug.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qtextstream.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qlocale.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qvector.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qset.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qcontiguouscache.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer.h \
 		../../../../Qt/5.11.1/android_armv7/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurl.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qurlquery.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfile.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qvector2d.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtouchdevice.h \
+		../../DataNotion/device.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtNetworkAuth \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QDebug \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/QDesktopServices \
 		../../../../Qt/5.11.1/android_armv7/include/QtGui/qdesktopservices.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtguiglobal.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtGui/qtgui-config.h \
-		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstandardpaths.h
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qstandardpaths.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QJsonArray \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsonarray.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsonvalue.h \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/QJsonObject \
+		../../../../Qt/5.11.1/android_armv7/include/QtCore/qjsonobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o networkunit.o ../../Model/LogicUnits/networkunit.cpp
 
 viewmodel.o: ../../ViewModel/viewmodel.cpp ../../ViewModel/viewmodel.h \
@@ -3191,6 +6573,15 @@ qrc_images.o: qrc_images.cpp
 qrc_config.o: qrc_config.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_config.o qrc_config.cpp
 
+moc_ImageHandler.o: moc_ImageHandler.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ImageHandler.o moc_ImageHandler.cpp
+
+moc_QZXing.o: moc_QZXing.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_QZXing.o moc_QZXing.cpp
+
+moc_QZXingFilter.o: moc_QZXingFilter.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_QZXingFilter.o moc_QZXingFilter.cpp
+
 moc_model.o: moc_model.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_model.o moc_model.cpp
 
@@ -3235,9 +6626,19 @@ uninstall_target: FORCE
 	-$(DEL_DIR) $(INSTALL_ROOT)/libs/armeabi-v7a/ 
 
 
-install: install_target  FORCE
+install_target: first FORCE
+	@test -d $(INSTALL_ROOT)/libs/armeabi-v7a/ || mkdir -p $(INSTALL_ROOT)/libs/armeabi-v7a/
+	-$(QINSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/libs/armeabi-v7a/$(QMAKE_TARGET)
 
-uninstall: uninstall_target  FORCE
+uninstall_target: FORCE
+	-$(DEL_FILE) $(INSTALL_ROOT)/libs/armeabi-v7a/$(QMAKE_TARGET) 
+	 -$(DEL_FILE) $(INSTALL_ROOT)/libs/armeabi-v7a/$(QMAKE_TARGET)
+	-$(DEL_DIR) $(INSTALL_ROOT)/libs/armeabi-v7a/ 
+
+
+install: install_target install_target  FORCE
+
+uninstall: uninstall_target uninstall_target  FORCE
 
 FORCE:
 

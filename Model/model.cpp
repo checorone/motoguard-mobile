@@ -26,29 +26,46 @@ Model::Model(QObject * parent) : QObject(parent)
 //    limits.append(Limits(devices.at(1).getId(),0,0,0));
 
     activeDeviceID = "None";
+    fulldevID = "None";
 
-    notifyUnit = new NotifyUnit(measures, notifysettings, limits, activeDeviceID);
+    notifyUnit = new NotifyUnit(measures, notifysettings, limits, fulldevID);
 
     QObject::connect(this,SIGNAL(extractNewsList(QDate)),dataUnit, SLOT(onextractNewsList(QDate)));
     QObject::connect(this,SIGNAL(insertNewsList(const NewsList &)),dataUnit, SLOT(oninsertNewsList(const NewsList &)));
-    QObject::connect(dataUnit,SIGNAL(newsListExtracted(const NewsList &, QDate)),this, SLOT(onnewsListExtracted(const NewsList &, QDate)));
 
     QObject::connect(this,SIGNAL(downloadAccountData()),networkUnit, SLOT(ondownloadAccountData()));
     QObject::connect(this,SIGNAL(authOnCloud(QString,QString)),networkUnit, SLOT(onauth(QString,QString)));
-    QObject::connect(networkUnit,SIGNAL(authorizationSucceed()), this, SIGNAL(downloadAccountData()));
-    QObject::connect(networkUnit,SIGNAL(userDataDownloaded(QString,QString,QString,int,QDate,QString,QString)),
-                     this, SLOT(onuserDataDownloaded(QString,QString,QString,int,QDate,QString,QString)));
-
-    QObject::connect(networkUnit,SIGNAL(connectionEstablished()), this, SLOT(onEstablished()));
-    QObject::connect(networkUnit,SIGNAL(connectionLost()), this, SLOT(onLost()));
-    QObject::connect(networkUnit,SIGNAL(measureDataDownloaded(Measurements)), this, SLOT(onDown(Measurements)));
+    QObject::connect(this,SIGNAL(checkDevicePresence(QString)),networkUnit, SLOT(ongetDeviceInfo(QString)));
+    QObject::connect(this,SIGNAL(activeDeviceChanged()), networkUnit, SIGNAL(getactiveDevice()));
+    QObject::connect(this,SIGNAL(activeDeviceFound(QString)),networkUnit, SLOT(onactiveDeviceFound(QString)));
 
     QObject::connect(this,SIGNAL(measureListFound(MeasureList)),notifyUnit, SLOT(onmeasureListFound(MeasureList)));
     QObject::connect(this,SIGNAL(notifySettingsFound(NotifyList)),notifyUnit, SLOT(onnotifyListFound(NotifyList)));
     QObject::connect(this,SIGNAL(limitsListFound(LimitsList)),notifyUnit, SLOT(onlimitsListFound(LimitsList)));
-    QObject::connect(this,SIGNAL(activeDeviceFound(QString)),notifyUnit, SLOT(onactiveDeviceFound(QString)));
+    QObject::connect(this,SIGNAL(fullDeviceFound(QString)),notifyUnit, SLOT(onactiveDeviceFound(QString)));
+    QObject::connect(this,SIGNAL(checkLimits()),notifyUnit, SLOT(oncheckLimits()));
+
+
     QObject::connect(networkUnit,SIGNAL(connectionLost()), notifyUnit, SLOT(onconnectionLost()));
+    QObject::connect(networkUnit,SIGNAL(authorizationSucceed()), this, SLOT(onauthorizationSucceed()));
+    QObject::connect(networkUnit,SIGNAL(authorizationFailed()), this, SLOT(onauthorizationFailed()));
+    QObject::connect(networkUnit,SIGNAL(userDataDownloaded(QString,QString,QString,int,QDate,QString,QString)),this, SLOT(onuserDataDownloaded(QString,QString,QString,int,QDate,QString,QString)));
+    QObject::connect(networkUnit,SIGNAL(userDataUnavailable()), this, SLOT(onuserDataUnavailable()));
+    QObject::connect(networkUnit,SIGNAL(connectionEstablished()), this, SLOT(onconnectionEstablished()));
+    QObject::connect(networkUnit,SIGNAL(connectionLost()), this, SLOT(onconnectionLost()));
+    QObject::connect(networkUnit,SIGNAL(measureDataDownloaded(Measurements)), this, SLOT(onmeasurementsDownloaded(Measurements)));
+    QObject::connect(networkUnit,SIGNAL(measureDataUnavailable()), this, SLOT(onmeasureDataUnavailable()));
+    QObject::connect(networkUnit,SIGNAL(deviceInfoDownloaded(Device)), this, SLOT(ondeviceInfoDownloaded(Device)));
+    QObject::connect(networkUnit,SIGNAL(deviceInfoUnavailable()), this, SLOT(ondeviceInfoUnavailable()));
+    QObject::connect(networkUnit,SIGNAL(getactiveDevice()), this, SLOT(ongetActiveDevice()));
+
+
+    //QObject::connect(networkUnit,SIGNAL(measureDataDownloaded(Measurements)),networkUnit, SLOT(oncheckData(Measurements)));
+    QObject::connect(this,SIGNAL(authOnCloud(QString,QString)),networkUnit, SLOT(onauth(QString,QString)));
+
     QObject::connect(notifyUnit,SIGNAL(dangerSituation(DangerSituation)),this, SLOT(ondangerSituation(DangerSituation)));
+
+    QObject::connect(dataUnit,SIGNAL(newsListExtracted(const NewsList &, QDate)),this, SLOT(onnewsListExtracted(const NewsList &, QDate)));
 
 
 }
@@ -102,34 +119,6 @@ void Model::onnewsListExtracted(const NewsList & items, QDate date)
     }
 }
 
-void Model::onnewsDownloaded(const NewsList & items)
-{
-    qDebug() << "[M] [News] : News successfully downloaded.";
-    emit insertNewsList(items);
-    emit newsListFound(items);
-}
-
-void Model::onuserDataDownloaded(QString name, QString avatar, QString information, int devicecount, QDate reg, QString accstatus, QString login)
-{
-    account.setName(name);
-    account.setAvatar(avatar);
-    account.setInformation(information);
-    account.setDevicecount(devicecount);
-    account.setReg(reg);
-    account.setAccstatus(accstatus);
-    account.setLogin(login);
-    account.setAuthorized(1);
-    emit accountDataChanged();
-}
-
-void Model::ondevicesDownloaded(const DeviceList &items)
-{
-    qDebug() << "[M] [DEVICE] : Devices successfully downloaded.";
-    devices.clear();
-    devices.append(items);
-    emit devicesListFound(devices);
-}
-
 void Model::ongetDevicesList()
 {
     if(devices.isEmpty()) {
@@ -146,21 +135,22 @@ void Model::onactivateDevice(QString id)
 {
     activeDeviceID = "None";
     for(auto & dev : devices) {
-        if(dev.getId() == id)
+        if(dev.getId() == id) {
             dev.setActivated(true);
-        else
-            dev.setActivated(false);
-        if(dev.getActivated() && dev.getConnected()) {
-            dev.setStatus(true);
             activeDeviceID = dev.getId();
-            history.clear();
         }
         else
-            dev.setStatus(false);
+            dev.setActivated(false);
     }
     qDebug() << "[M] [DEVICE] : Device successfully activated.";
     emit devicesListChanged();
     emit activeDeviceChanged();
+}
+
+void Model::ongetFullDevice()
+{
+    qDebug() << "[M] [FULL DEV] : Full device successfully found.";
+    emit fullDeviceFound(fulldevID);
 }
 
 void Model::ongetAccountData()
@@ -171,15 +161,8 @@ void Model::ongetAccountData()
 
 void Model::onaddDevice(QString id)
 {
-    qDebug() << "[M] [DEVICE] : Trying to register device.";
-    devices.append(Device(id, 0,0,0, "Стандартное устроиство."));
-    measures.append(Measurements(id,0,0,0,0,0,0,0,0,0,0,0));
-    limits.append(Limits(id,0,0,0));
-    history.clear();
-    //emit registerDevice(id);
-    emit devicesListChanged();
-    emit measureListChanged();
-    emit limitsListChanged();
+    if(devices.length() < 1)
+        emit checkDevicePresence(id);
 }
 
 void Model::ongetMeasureList()
@@ -226,42 +209,93 @@ void Model::ongetActiveDevice()
     emit activeDeviceFound(activeDeviceID);
 }
 
-void Model::onauthorize(QString log, QString pas)
-{
-    emit authOnCloud(log, pas);
-}
-
 void Model::ongetHistory()
 {
     qDebug() << "[M] [HISTORY] : History successfully found.";
     emit historyFound(history);
 }
 
-void Model::onmeasurementsDownloaded(const Measurements &measure)
+void Model::onauthorize(QString log, QString pas)
 {
-
+    emit authOnCloud(log, pas);
 }
 
-void Model::onauthGrant(const Account &)
+void Model::ondangerSituation(DangerSituation ds)
 {
-
+    qDebug() << "[M] [HISTORY] : Situation successfully added.";
+    history.append(ds);
+    emit historyChanged();
 }
 
-void Model::onEstablished()
+void Model::onnewsDownloaded(const NewsList & items)
 {
-    for(auto & x : devices)
-        x.setConnected(1);
+    qDebug() << "[M] [News] : News successfully downloaded.";
+    emit insertNewsList(items);
+    emit newsListFound(items);
+}
+
+
+void Model::onuserDataDownloaded(QString name, QString avatar, QString information, int devicecount, QDate reg, QString accstatus, QString login)
+{
+    account.setName(name);
+    account.setAvatar(avatar);
+    account.setInformation(information);
+    account.setDevicecount(devicecount);
+    account.setReg(reg);
+    account.setAccstatus(accstatus);
+    account.setLogin(login);
+    account.setAuthorized(1);
+    emit accountDataChanged();
+}
+
+void Model::onuserDataUnavailable()
+{
+    emit infoMessage("Аккаунт", "Невозможно получить данные аккаунта.");
+}
+
+void Model::onauthorizationSucceed()
+{
+    emit infoMessage("Информация", "Авторизация прошла успешно");
+    emit downloadAccountData();
+}
+
+void Model::onauthorizationFailed()
+{
+    emit infoMessage("Ошибка", "Неправильный логин или пароль");
+}
+
+void Model::onconnectionEstablished()
+{
+    for(auto & x : devices) {
+        if (x.getActivated()) {
+            x.setConnected(true);
+            x.setStatus(true);
+            fulldevID = x.getId();
+        }
+    }
+    emit measureListChanged();
+    emit infoMessage("Информация", "Соединение с устроиством установлено");
+    emit fullDeviceChanged();
     emit devicesListChanged();
 }
 
-void Model::onLost()
+void Model::onconnectionLost()
 {
-    for(auto & x : devices)
-        x.setConnected(0);
+    for(auto & x : devices) {
+        if (x.getActivated() && x.getConnected()) {
+            x.setStatus(false);
+            x.setConnected(false);
+            fulldevID = "None";
+        }
+    }
+    emit measureListChanged();
+    emit historyChanged();
+    emit infoMessage("Ошибка", "Соединение с устроиством потеряно");
+    emit fullDeviceChanged();
     emit devicesListChanged();
 }
 
-void Model::onDown(Measurements m)
+void Model::onmeasurementsDownloaded(Measurements m)
 {
    if(measures.isEmpty())
         return;
@@ -271,14 +305,33 @@ void Model::onDown(Measurements m)
                 measures[i] = m;
 
                 emit measureListChanged();
+                emit checkLimits();
             }
-    }
-     qDebug() << "Here!";
+   }
 }
 
-void Model::ondangerSituation(DangerSituation ds)
+void Model::onmeasureDataUnavailable()
 {
-    qDebug() << "[M] [HISTORY] : Situation successfully added.";
-    history.append(ds);
-    emit historyChanged();
+    //SOME HANDLER
 }
+
+void Model::ondeviceInfoDownloaded(Device dev)
+{
+    qDebug() << "[M] [DEVICE] : Trying to register device.";
+    devices.append(dev);
+    measures.append(Measurements(dev.getId(),0,0,0,0,0,0,0,0,0,0,0));
+    limits.append(Limits(dev.getId(),0,0,0));
+    history.clear();
+    emit devicesListChanged();
+    emit measureListChanged();
+    emit limitsListChanged();
+    emit infoMessage("Информация", "Устройство успешно добавлено");
+}
+
+void Model::ondeviceInfoUnavailable()
+{
+    emit infoMessage("Ошибка", "Данного устроиства нет в базе.");
+}
+
+
+

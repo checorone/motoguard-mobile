@@ -32,6 +32,7 @@ private:
     SituationList history;
 
     QString activeDeviceID;
+    QString fulldevID;
     Account account;
 
 public:
@@ -61,8 +62,13 @@ signals:
     void activeDeviceChanged();
     void activeDeviceFound(const QString & id);
 
+    void fullDeviceChanged();
+    void fullDeviceFound(const QString & id);
+
     void historyChanged();
     void historyFound(const SituationList & items);
+
+    void infoMessage(QString, QString);
 
     /*For Data unit*/
     void extractNewsList(const QDate & date);
@@ -75,6 +81,10 @@ signals:
     void registerDevice(QString id);
     void downloadMeasurements(QString id);
     void authOnCloud(QString login, QString secret);
+    void checkDevicePresence(QString id);
+
+    /*For notify Unit*/
+    void checkLimits();
 
 
 public slots:
@@ -96,6 +106,8 @@ public slots:
     void ongetActiveDevice();
     void onactivateDevice(QString id);
 
+    void ongetFullDevice();
+
     void ongetAccountData();
     void onauthorize(QString, QString);
 
@@ -107,12 +119,15 @@ public slots:
     /*From Network unit*/
     void onnewsDownloaded(const NewsList & items);
     void onuserDataDownloaded(QString name, QString avatar, QString information, int devicecount, QDate reg, QString accstatus, QString login);
-    void ondevicesDownloaded(const DeviceList & items);
-    void onmeasurementsDownloaded(const Measurements & items);
-    void onauthGrant(const Account & acc);
-    void onEstablished();
-    void onLost();
-    void onDown(Measurements);
+    void onuserDataUnavailable();
+    void onauthorizationSucceed();
+    void onauthorizationFailed();
+    void onconnectionEstablished();
+    void onconnectionLost();
+    void onmeasurementsDownloaded(Measurements);
+    void onmeasureDataUnavailable();
+    void ondeviceInfoDownloaded(Device);
+    void ondeviceInfoUnavailable();
 
     /*From Notify unit*/
     void ondangerSituation(DangerSituation);

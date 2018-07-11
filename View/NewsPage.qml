@@ -116,14 +116,6 @@ Page {
                     spacing: 0
 
                     anchors.fill: parent
-
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        radius: 16.0
-                        samples: 32
-                        color: "#80000000"
-                    }
-
                     Rectangle {
                         Layout.fillWidth: true
                         width: parent.width

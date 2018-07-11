@@ -27,10 +27,7 @@ Popup {
         text: "Добавить устройство"
 
         onClicked: {
-            addDevicePopup.x = stack.x + (stack.width - addDevicePopup.width) / 2
-            addDevicePopup.y = stack.y + (stack.height - addDevicePopup.height) / 2
-            addDevicePopup.open()
-
+            VM.account.authorized ? stack.push(barCodePage) : wd.showMsg("Авторизация", "Ошибка: Требуется авторизация.")
             popup.close()
         }
     }

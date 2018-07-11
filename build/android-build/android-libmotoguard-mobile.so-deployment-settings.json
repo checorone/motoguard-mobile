@@ -10,7 +10,7 @@
    "ndk-host": "linux-x86_64",
    "target-architecture": "armeabi-v7a",
    "android-package-source-directory": "/home/checor/Qt_projects/motoguard-mobile/android-sources",
-   "android-extra-libs": "/home/checor/Qt_projects/motoguard-mobile/openssl/libcrypto.so,/home/checor/Qt_projects/motoguard-mobile/openssl/libssl.so",
+   "android-extra-libs": "/home/checor/Qt_projects/motoguard-mobile/thirdparty/openssl/libcrypto.so,/home/checor/Qt_projects/motoguard-mobile/thirdparty/openssl/libssl.so,/home/checor/Qt_projects/motoguard-mobile/thirdparty/qzxing/src/build/android-build/libs/armeabi-v7a/libQZXing.so",
    "qml-root-path": "/home/checor/Qt_projects/motoguard-mobile",
    "stdcpp-path": "/home/checor/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/libgnustl_shared.so",
    "application-binary": "/home/checor/Qt_projects/motoguard-mobile/build/android-build/libmotoguard-mobile.so"

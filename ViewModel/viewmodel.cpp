@@ -3,6 +3,8 @@
 
 ViewModel::ViewModel()
 {
+    busy = false;
+
     news = new NewsListModel(this);
     notify = new NotifyListModel(this);
     devices = new DevicesListModel(this);
@@ -47,9 +49,19 @@ HistoryListModel *ViewModel::getHistoryModel()
     return history;
 }
 
+bool ViewModel::getBusy() const
+{
+    return busy;
+}
+
 QString ViewModel::getActiveDeviceID() const
 {
     return activeDeviceID;
+}
+
+QString ViewModel::getFulldevID() const
+{
+    return fulldevID;
 }
 
 Account * ViewModel::getAccount()
@@ -162,6 +174,27 @@ void ViewModel::onsetLimits(QString radius, QString id)
     emit setLimits(radius.toFloat(), id);
 }
 
+void ViewModel::onAddDevice(QString id)
+{
+    busy = true;
+    emit BusyChanged();
+    emit addDevice(id);
+}
+
+void ViewModel::onauthorize(QString log, QString pas)
+{
+    busy = true;
+    emit BusyChanged();
+    emit authorize(log,pas);
+}
+
+void ViewModel::onactivateDevice(QString id)
+{
+    busy = true;
+    emit BusyChanged();
+    emit activateDevice(id);
+}
+
 //============================================================//
 //========================Auth Section========================//
 //============================================================//
@@ -173,6 +206,8 @@ void ViewModel::onaccountDataFound(const Account & acc)
     delete account;
     account = new Account(acc.getName(),acc.getAvatar(), acc.getInformation(), acc.getDevicecount(),acc.getReg(),acc.getAccstatus(), acc.getLogin(), acc.getAuthorized());
     emit AccountDataChanged();
+    busy = false;
+    emit BusyChanged();
 }
 
 void ViewModel::onactiveDeviceFound(const QString & id)
@@ -183,16 +218,25 @@ void ViewModel::onactiveDeviceFound(const QString & id)
     emit MeasureModelChanged();
 }
 
+void ViewModel::onfullDeviceFound(const QString & id)
+{
+    qDebug() << "[VM] [FULL DEV] : Added full device with id " << id << ".";
+    fulldevID = id;
+    emit FulldevIDChanged();
+    emit MeasureModelChanged();
+}
+
 void ViewModel::onhistoryFound(const SituationList & items)
 {
-    if(items.count() == 0) {
-        qDebug() << "[VM] [History] [ERROR]: Get empty response from model.";
-        return;
-    }
-
     history->replace(items);
     qDebug() << "[VM] [History] : Added " << items.length() << " situations to history list.";
     emit HistoryModelChanged();
 }
 
 
+void ViewModel::oninfoMessage(QString label, QString text)
+{
+    busy = false;
+    emit BusyChanged();
+    emit showMessage(label, text);
+}

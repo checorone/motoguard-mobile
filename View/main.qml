@@ -1,5 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
+import ViewModel 1.0
 
 ApplicationWindow {
     id: wd
@@ -18,6 +19,20 @@ ApplicationWindow {
     signal authorize(string login, string secret)
     signal addNews()
     signal updateNews()
+
+    Connections {
+        target: VM
+        onShowMessage: showMsg(label, text)
+    }
+
+    function showMsg(label,text) {
+        messagePopup.x = stack.x + (stack.width - messagePopup.width) / 2
+        messagePopup.y = stack.y + (stack.height - messagePopup.height) / 2
+        messagePopup.label = label
+        messagePopup.text = text
+        messagePopup.open()
+    }
+
 
     //=====================================================//
     //=============Static elements section=================//
@@ -45,10 +60,6 @@ ApplicationWindow {
         id: deviceSettingsPopup
     }
 
-    AddDevicePopup {
-        id: addDevicePopup
-    }
-
     DeviceOptionsPopup {
         id: deviceOptionsPopup
     }
@@ -59,6 +70,10 @@ ApplicationWindow {
 
     AuthPopup {
         id: authPopup
+    }
+
+    MessagePopup {
+        id: messagePopup
     }
 
     //=====================================================//
@@ -98,6 +113,12 @@ ApplicationWindow {
     Component {
         id: notifySettingsPage
         NotifySettingsPage {
+        }
+    }
+
+    Component {
+        id: barCodePage
+        BarCodePage {
         }
     }
 

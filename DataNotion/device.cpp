@@ -50,8 +50,18 @@ void Device::setType(const QString &value)
     type = value;
 }
 
-Device::Device(QString id, bool activated, bool connected, bool status, QString type) : id(id),
-    activated(activated), connected(connected),
+QString Device::getArtikId() const
+{
+    return artikId;
+}
+
+void Device::setArtikId(const QString &value)
+{
+    artikId = value;
+}
+
+Device::Device(QString id, QString artikId, bool activated, bool connected, bool status, QString type) : id(id),
+    activated(activated), artikId(artikId), connected(connected),
     status(status), type(type)
 {
 

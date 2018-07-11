@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_NotifyUnit_t {
     QByteArrayData data[17];
-    char stringdata0[241];
+    char stringdata0[243];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,24 +39,24 @@ QT_MOC_LITERAL(4, 44, 14), // "getMeasureList"
 QT_MOC_LITERAL(5, 59, 13), // "getNotifyList"
 QT_MOC_LITERAL(6, 73, 13), // "getLimitsList"
 QT_MOC_LITERAL(7, 87, 15), // "getActiveDevice"
-QT_MOC_LITERAL(8, 103, 11), // "checkLimits"
-QT_MOC_LITERAL(9, 115, 16), // "onconnectionLost"
-QT_MOC_LITERAL(10, 132, 18), // "onmeasureListFound"
-QT_MOC_LITERAL(11, 151, 11), // "MeasureList"
-QT_MOC_LITERAL(12, 163, 17), // "onnotifyListFound"
-QT_MOC_LITERAL(13, 181, 10), // "NotifyList"
-QT_MOC_LITERAL(14, 192, 17), // "onlimitsListFound"
-QT_MOC_LITERAL(15, 210, 10), // "LimitsList"
-QT_MOC_LITERAL(16, 221, 19) // "onactiveDeviceFound"
+QT_MOC_LITERAL(8, 103, 16), // "onconnectionLost"
+QT_MOC_LITERAL(9, 120, 18), // "onmeasureListFound"
+QT_MOC_LITERAL(10, 139, 11), // "MeasureList"
+QT_MOC_LITERAL(11, 151, 17), // "onnotifyListFound"
+QT_MOC_LITERAL(12, 169, 10), // "NotifyList"
+QT_MOC_LITERAL(13, 180, 17), // "onlimitsListFound"
+QT_MOC_LITERAL(14, 198, 10), // "LimitsList"
+QT_MOC_LITERAL(15, 209, 19), // "onactiveDeviceFound"
+QT_MOC_LITERAL(16, 229, 13) // "oncheckLimits"
 
     },
     "NotifyUnit\0dangerSituation\0\0DangerSituation\0"
     "getMeasureList\0getNotifyList\0getLimitsList\0"
-    "getActiveDevice\0checkLimits\0"
-    "onconnectionLost\0onmeasureListFound\0"
-    "MeasureList\0onnotifyListFound\0NotifyList\0"
+    "getActiveDevice\0onconnectionLost\0"
+    "onmeasureListFound\0MeasureList\0"
+    "onnotifyListFound\0NotifyList\0"
     "onlimitsListFound\0LimitsList\0"
-    "onactiveDeviceFound"
+    "onactiveDeviceFound\0oncheckLimits"
 };
 #undef QT_MOC_LITERAL
 
@@ -81,12 +81,12 @@ static const uint qt_meta_data_NotifyUnit[] = {
        7,    0,   75,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   76,    2, 0x08 /* Private */,
-       9,    0,   77,    2, 0x0a /* Public */,
-      10,    1,   78,    2, 0x0a /* Public */,
-      12,    1,   81,    2, 0x0a /* Public */,
-      14,    1,   84,    2, 0x0a /* Public */,
-      16,    1,   87,    2, 0x0a /* Public */,
+       8,    0,   76,    2, 0x0a /* Public */,
+       9,    1,   77,    2, 0x0a /* Public */,
+      11,    1,   80,    2, 0x0a /* Public */,
+      13,    1,   83,    2, 0x0a /* Public */,
+      15,    1,   86,    2, 0x0a /* Public */,
+      16,    0,   89,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
@@ -97,11 +97,11 @@ static const uint qt_meta_data_NotifyUnit[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11,    2,
-    QMetaType::Void, 0x80000000 | 13,    2,
-    QMetaType::Void, 0x80000000 | 15,    2,
+    QMetaType::Void, 0x80000000 | 10,    2,
+    QMetaType::Void, 0x80000000 | 12,    2,
+    QMetaType::Void, 0x80000000 | 14,    2,
     QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -117,12 +117,12 @@ void NotifyUnit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->getNotifyList(); break;
         case 3: _t->getLimitsList(); break;
         case 4: _t->getActiveDevice(); break;
-        case 5: _t->checkLimits(); break;
-        case 6: _t->onconnectionLost(); break;
-        case 7: _t->onmeasureListFound((*reinterpret_cast< MeasureList(*)>(_a[1]))); break;
-        case 8: _t->onnotifyListFound((*reinterpret_cast< NotifyList(*)>(_a[1]))); break;
-        case 9: _t->onlimitsListFound((*reinterpret_cast< LimitsList(*)>(_a[1]))); break;
-        case 10: _t->onactiveDeviceFound((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 5: _t->onconnectionLost(); break;
+        case 6: _t->onmeasureListFound((*reinterpret_cast< MeasureList(*)>(_a[1]))); break;
+        case 7: _t->onnotifyListFound((*reinterpret_cast< NotifyList(*)>(_a[1]))); break;
+        case 8: _t->onlimitsListFound((*reinterpret_cast< LimitsList(*)>(_a[1]))); break;
+        case 9: _t->onactiveDeviceFound((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->oncheckLimits(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

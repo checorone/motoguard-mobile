@@ -5,14 +5,14 @@
 
 NotifyUnit::NotifyUnit(MeasureList ml, NotifyList nf, LimitsList ls, QString activeDeviceId) :QObject(0),  ml(ml), nf(nf), ls(ls), activeDeviceId(activeDeviceId)
 {
-    QTimer* timer = new QTimer(this);
-    timer->setInterval(10000);
-    timer->start(10000);
-    connect(timer, SIGNAL(timeout()), this, SLOT(checkLimits()));
+//    QTimer* timer = new QTimer(this);
+//    timer->setInterval(10000);
+//    timer->start(10000);
+//    connect(timer, SIGNAL(timeout()), this, SLOT(checkLimits()));
 
-    QThread* thread = new QThread();
-    this->moveToThread(thread);
-    thread->start();
+//    QThread* thread = new QThread();
+//    this->moveToThread(thread);
+//    thread->start();
 }
 
 void NotifyUnit::sendNotification(QString notify, float latitude, float longitude)
@@ -25,7 +25,7 @@ void NotifyUnit::sendNotification(QString notify, float latitude, float longitud
     emit dangerSituation(DangerSituation(activeDeviceId,latitude, longitude, notify, QDateTime::currentDateTime()));
 }
 
-void NotifyUnit::checkLimits()
+void NotifyUnit::oncheckLimits()
 {
     QMap<QString, bool> map;
     for(auto notify : nf)
@@ -36,7 +36,7 @@ void NotifyUnit::checkLimits()
             if(map["Высокая скорость"] && ml[i].getSpeed() > 60)
                 sendNotification("Скорость больше 60 км/ч!", ml[i].getLatitude(), ml[i].getLongitude());
 
-            if(map["Удар"] && ml[i].getVibration() > 0.8)
+            if(map["Удар"] && ml[i].getVibration() > 2000)
                 sendNotification("Был зафиксирован удар!", ml[i].getLatitude(), ml[i].getLongitude());
 
             if(map["Падение"] && ml[i].getDegy() > 20)
@@ -57,7 +57,7 @@ void NotifyUnit::onconnectionLost()
 {
     for(int i = 0; i < ml.length(); i++)
         if(ml[i].getId() == activeDeviceId)
-            sendNotification("Потеряно соединение с устроиством!", ml[i].getLatitude(), ml[i].getLongitude());
+            sendNotification("Потеряно соединение с устройством!", ml[i].getLatitude(), ml[i].getLongitude());
 }
 
 void NotifyUnit::onmeasureListFound(MeasureList items)

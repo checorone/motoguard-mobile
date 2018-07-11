@@ -13,7 +13,7 @@ Page {
     Label {
         text: "Отсутствует активное устроиство"
         anchors.centerIn: parent
-        visible: VM.activeDeviceID === "None"
+        visible: VM.fulldevID === "None"
     }
 
     ListView {
@@ -71,14 +71,14 @@ Page {
                         anchors.left: parent.left
                         width: parent.width / 40
                         height: parent.height
-                        color: model.vibration >= 0.5 ? model.vibration > 0.9 ? "red" : "yellow"  : "#00ff00"
+                        color: model.vibration >= 1500 ? model.vibration > 2000 ? "red" : "yellow"  : "#00ff00"
                     }
 
                     Label {
                         id: lb2
                         anchors.fill: parent
                         padding: 10
-                        text: "Вибрация: " + (model.vibration >= 0.5 ? model.vibration > 0.9 ? "Опасно." : "Выше нормы"  : "В норме.") + "  \n\nТекущее значение: " + model.vibration
+                        text: "Вибрация: " + (model.vibration >= 1500 ? model.vibration > 2000 ? "Опасно." : "Выше нормы"  : "В норме.") + "  \n\nТекущее значение: " + model.vibration
                     }
                 }
 
@@ -130,7 +130,7 @@ Page {
 
             }
 
-            visible: VM.activeDeviceID === model.id
+            visible: VM.fulldevID === model.id
         }
     }
 

@@ -12,12 +12,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/libs/QtAndroidGamepad.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="6e1d7ee4e0d777bb542ae1f30fa5b062e2e87484">
+        <dex dex="/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/build/intermediates/pre-dexed/debug/QtAndroidGamepad_4c2cf4884cac700d7de4fce0aa80793c67234aa3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/libs/QtAndroidBearer.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.3"
         sha1="240d63fd32eeb8ff0c72f271e3bc9b18fe3963b0">
         <dex dex="/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/build/intermediates/pre-dexed/debug/QtAndroidBearer_1a8917b561881e69b6792012b862a719fdd97c1b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/libs/QtMultimedia.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="8b058f48f5cd629c2a8037ffb94591f14e678005">
+        <dex dex="/home/checor/Qt_projects/motoguard-mobile/build/android-build/android-build/build/intermediates/pre-dexed/debug/QtMultimedia_6282ebc2376e5b75954c75f4d75dc53d69148318.jar" />
     </item>
     <item
         is-multidex="false"

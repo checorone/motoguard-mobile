@@ -13,7 +13,7 @@ Page {
     Label {
         text: "Отсутствует активное устроиство"
         anchors.centerIn: parent
-        visible: VM.activeDeviceID === "None"
+        visible: VM.fulldevID === "None"
     }
 
     ListView {
@@ -67,7 +67,7 @@ Page {
                         id: where
                         anchors.top: what.bottom
                         padding: 5
-                        text: "Широта: " + model.latitude + " долгота: " + model.longitude
+                        text: "Широта: " + model.latitude.toFixed(2) + " долгота: " + model.longitude.toFixed(2)
                     }
 
                     Label {

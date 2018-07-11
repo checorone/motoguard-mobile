@@ -1,5 +1,7 @@
 QT += quick sql androidextras network networkauth
-CONFIG += c++11
+CONFIG += c++11 qzxing_qml qzxing_multimedia
+
+include(thirdparty/qzxing/src/QZXing.pri)
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -89,14 +91,16 @@ DISTFILES += \
     View/UserPage.qml \
     View/NotifySettingsPopup.qml \
     View/DeviceSettingsPopup.qml \
-    View/AddDevicePopup.qml \
     View/DeviceOptionsPopup.qml \
     View/LimitInputPopup.qml \
     View/NotifySettingsPage.qml \
-    View/AuthPopup.qml
+    View/AuthPopup.qml \
+    View/BarCodePage.qml \
+    View/MessagePopup.qml
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_EXTRA_LIBS = \
-        /home/checor/Qt_projects/motoguard-mobile/openssl/libcrypto.so \
-        $$PWD/openssl/libssl.so
+        $$PWD/thirdparty/openssl/libcrypto.so \
+        $$PWD/thirdparty/openssl/libssl.so \
+        $$PWD/thirdparty/qzxing/src/build/android-build/libs/armeabi-v7a/libQZXing.so
 }

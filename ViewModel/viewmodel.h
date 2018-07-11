@@ -20,6 +20,8 @@ class ViewModel : public QObject
     Q_PROPERTY(HistoryListModel * history READ getHistoryModel NOTIFY HistoryModelChanged)
 
     Q_PROPERTY(QString activeDeviceID READ getActiveDeviceID NOTIFY ActiveDeviceChanged)
+    Q_PROPERTY(QString fulldevID READ getFulldevID NOTIFY FulldevIDChanged)
+    Q_PROPERTY(bool busy READ getBusy NOTIFY BusyChanged)
     Q_PROPERTY(Account * account READ getAccount NOTIFY AccountDataChanged)
 
 private:
@@ -29,7 +31,9 @@ private:
     MeasureListModel * measure;
     HistoryListModel * history;
 
+    bool busy;
     QString activeDeviceID;
+    QString fulldevID;
     Account * account;
 
 public:
@@ -43,7 +47,9 @@ public:
     MeasureListModel * getMeasureModel();
     HistoryListModel * getHistoryModel();
 
+    bool getBusy() const;
     QString getActiveDeviceID() const;
+    QString getFulldevID() const;
     Account * getAccount();
 
 signals:
@@ -53,8 +59,12 @@ signals:
     void DevicesModelChanged();
     void MeasureModelChanged();
     void ActiveDeviceChanged();
+    void FulldevIDChanged();
     void AccountDataChanged();
     void HistoryModelChanged();
+    void BusyChanged();
+
+    void showMessage(QString label, QString text);
 
     /*For Model*/
     void getNotifySettings();
@@ -64,6 +74,7 @@ signals:
     void getLimitsList();
     void getAccountData();
     void getActiveDevice();
+    void getFullDevice();
     void getHistory();
 
     void resetNotifySettings(QString name);
@@ -83,13 +94,19 @@ public slots:
     void onnotifySettingsFound(const NotifyList & items);
     void onaccountDataFound(const Account &);
     void onactiveDeviceFound(const QString &);
+    void onfullDeviceFound(const QString &);
     void onhistoryFound(const SituationList &);
 
     void onnewsListChanged();
 
+    void oninfoMessage(QString, QString);
+
     /*From view*/
     void onaddNews();
     void onsetLimits(QString, QString);
+    void onAddDevice(QString);
+    void onauthorize(QString, QString);
+    void onactivateDevice(QString);
 
 };
 

@@ -29,8 +29,11 @@ void MVVM::initLinks()
     QObject::connect(model,SIGNAL(limitsListChanged()),             viewmodel, SIGNAL(getLimitsList()));
     QObject::connect(model,SIGNAL(activeDeviceFound(QString)),      viewmodel, SLOT(onactiveDeviceFound(QString)));
     QObject::connect(model,SIGNAL(activeDeviceChanged()),           viewmodel, SIGNAL(getActiveDevice()));
+    QObject::connect(model,SIGNAL(fullDeviceFound(QString)),        viewmodel, SLOT(onfullDeviceFound(QString)));
+    QObject::connect(model,SIGNAL(fullDeviceChanged()),             viewmodel, SIGNAL(getFullDevice()));
     QObject::connect(model,SIGNAL(historyFound(SituationList)),     viewmodel, SLOT(onhistoryFound(SituationList)));
     QObject::connect(model,SIGNAL(historyChanged()),                viewmodel, SIGNAL(getHistory()));
+    QObject::connect(model,SIGNAL(infoMessage(QString,QString)),    viewmodel, SLOT(oninfoMessage(QString, QString)));
 
 
     QObject::connect(viewmodel,SIGNAL(getNewsList(QDate)),          model, SLOT(ongetNewsList(QDate)));
@@ -46,15 +49,18 @@ void MVVM::initLinks()
     QObject::connect(viewmodel,SIGNAL(getAccountData()),            model, SLOT(ongetAccountData()));
     QObject::connect(viewmodel,SIGNAL(authorize(QString, QString)), model, SLOT(onauthorize(QString,QString)));
     QObject::connect(viewmodel,SIGNAL(getActiveDevice()),           model, SLOT(ongetActiveDevice()));
+    QObject::connect(viewmodel,SIGNAL(getFullDevice()),             model, SLOT(ongetFullDevice()));
     QObject::connect(viewmodel,SIGNAL(getHistory()),                model, SLOT(ongetHistory()));
+
+   // QObject::connect(viewmodel,SIGNAL(showMessage(QString,QString)), view->rootObjects()[0], SLOT(onshowMessage(QString,QString)));
 
     QObject::connect(view->rootObjects()[0],SIGNAL(resetNotify(QString)),       viewmodel, SIGNAL(resetNotifySettings(QString)));
     QObject::connect(view->rootObjects()[0],SIGNAL(addNews()),                  viewmodel, SLOT(onaddNews()));
     QObject::connect(view->rootObjects()[0],SIGNAL(updateNews()),               viewmodel, SIGNAL(updateNews()));
-    QObject::connect(view->rootObjects()[0],SIGNAL(activateDevice(QString)),    viewmodel, SIGNAL(activateDevice(QString)));
-    QObject::connect(view->rootObjects()[0],SIGNAL(addDevice(QString)),         viewmodel, SIGNAL(addDevice(QString)));
+    QObject::connect(view->rootObjects()[0],SIGNAL(activateDevice(QString)),    viewmodel, SLOT(onactivateDevice(QString)));
+    QObject::connect(view->rootObjects()[0],SIGNAL(addDevice(QString)),         viewmodel, SLOT(onAddDevice(QString)));
     QObject::connect(view->rootObjects()[0],SIGNAL(setLimits(QString, QString)),viewmodel, SLOT(onsetLimits(QString,QString)));
-    QObject::connect(view->rootObjects()[0],SIGNAL(authorize(QString, QString)),viewmodel, SIGNAL(authorize(QString,QString)));
+    QObject::connect(view->rootObjects()[0],SIGNAL(authorize(QString, QString)),viewmodel, SLOT(onauthorize(QString,QString)));
 
     emit viewmodel->getNewsList(QDate::currentDate());
     emit viewmodel->getDevicesList();
@@ -63,6 +69,7 @@ void MVVM::initLinks()
     emit viewmodel->getNotifySettings();
     emit viewmodel->getActiveDevice();
     emit viewmodel->getHistory();
+    emit viewmodel->getFullDevice();
 }
 
 void MVVM::initQML()

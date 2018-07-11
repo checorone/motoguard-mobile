@@ -14,10 +14,11 @@
         <file>View/UserPage.qml</file>
         <file>View/NotifySettingsPopup.qml</file>
         <file>View/DeviceSettingsPopup.qml</file>
-        <file>View/AddDevicePopup.qml</file>
         <file>View/DeviceOptionsPopup.qml</file>
         <file>View/LimitInputPopup.qml</file>
         <file>View/NotifySettingsPage.qml</file>
         <file>View/AuthPopup.qml</file>
+        <file>View/BarCodePage.qml</file>
+        <file>View/MessagePopup.qml</file>
     </qresource>
 </RCC>
